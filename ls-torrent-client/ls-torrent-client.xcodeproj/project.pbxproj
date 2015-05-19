@@ -20,6 +20,10 @@
 		0953085A1B0BA98200B6D88E /* TorrentListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 095308591B0BA98200B6D88E /* TorrentListView.xib */; };
 		095308641B0BAB8B00B6D88E /* TorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308631B0BAB8B00B6D88E /* TorrentCell.m */; };
 		095308661B0BABD800B6D88E /* TorrentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 095308651B0BABD800B6D88E /* TorrentCell.xib */; };
+		095308701B0BF4E100B6D88E /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 0953086F1B0BF4E100B6D88E /* Type.m */; };
+		095308731B0BF56A00B6D88E /* TypeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308721B0BF56A00B6D88E /* TypeString.m */; };
+		095308761B0BF68B00B6D88E /* TypeInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308751B0BF68B00B6D88E /* TypeInteger.m */; };
+		095308791B0BF99B00B6D88E /* TypeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308781B0BF99B00B6D88E /* TypeArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,14 @@
 		095308621B0BAB8B00B6D88E /* TorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentCell.h; path = "ls-torrent-client/Classes/Views/TorrentCell.h"; sourceTree = "<group>"; };
 		095308631B0BAB8B00B6D88E /* TorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentCell.m; path = "ls-torrent-client/Classes/Views/TorrentCell.m"; sourceTree = "<group>"; };
 		095308651B0BABD800B6D88E /* TorrentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TorrentCell.xib; path = "ls-torrent-client/Resources/XIBs/TorrentCell.xib"; sourceTree = "<group>"; };
+		0953086E1B0BF4E100B6D88E /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Type.h; path = "ls-torrent-client/Classes/Bencode/Types/Type.h"; sourceTree = "<group>"; };
+		0953086F1B0BF4E100B6D88E /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Type.m; path = "ls-torrent-client/Classes/Bencode/Types/Type.m"; sourceTree = "<group>"; };
+		095308711B0BF56A00B6D88E /* TypeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeString.h; path = "ls-torrent-client/Classes/Bencode/Types/TypeString.h"; sourceTree = "<group>"; };
+		095308721B0BF56A00B6D88E /* TypeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeString.m; path = "ls-torrent-client/Classes/Bencode/Types/TypeString.m"; sourceTree = "<group>"; };
+		095308741B0BF68B00B6D88E /* TypeInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeInteger.h; path = "ls-torrent-client/Classes/Bencode/Types/TypeInteger.h"; sourceTree = "<group>"; };
+		095308751B0BF68B00B6D88E /* TypeInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeInteger.m; path = "ls-torrent-client/Classes/Bencode/Types/TypeInteger.m"; sourceTree = "<group>"; };
+		095308771B0BF99B00B6D88E /* TypeArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeArray.h; path = "ls-torrent-client/Classes/Bencode/Types/TypeArray.h"; sourceTree = "<group>"; };
+		095308781B0BF99B00B6D88E /* TypeArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeArray.m; path = "ls-torrent-client/Classes/Bencode/Types/TypeArray.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +188,7 @@
 		0953084C1B0B9DDC00B6D88E /* Bencode */ = {
 			isa = PBXGroup;
 			children = (
+				095308671B0BF41C00B6D88E /* Types */,
 				0953084D1B0B9E0500B6D88E /* TorrentDecoder.h */,
 				0953084E1B0B9E0500B6D88E /* TorrentDecoder.m */,
 			);
@@ -227,6 +240,21 @@
 				095308651B0BABD800B6D88E /* TorrentCell.xib */,
 			);
 			name = XIBs;
+			sourceTree = "<group>";
+		};
+		095308671B0BF41C00B6D88E /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				0953086E1B0BF4E100B6D88E /* Type.h */,
+				0953086F1B0BF4E100B6D88E /* Type.m */,
+				095308711B0BF56A00B6D88E /* TypeString.h */,
+				095308721B0BF56A00B6D88E /* TypeString.m */,
+				095308741B0BF68B00B6D88E /* TypeInteger.h */,
+				095308751B0BF68B00B6D88E /* TypeInteger.m */,
+				095308771B0BF99B00B6D88E /* TypeArray.h */,
+				095308781B0BF99B00B6D88E /* TypeArray.m */,
+			);
+			name = Types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,9 +360,13 @@
 			files = (
 				095308251B0B9C5E00B6D88E /* main.m in Sources */,
 				0953084F1B0B9E0500B6D88E /* TorrentDecoder.m in Sources */,
+				095308761B0BF68B00B6D88E /* TypeInteger.m in Sources */,
 				095308231B0B9C5E00B6D88E /* AppDelegate.m in Sources */,
 				095308581B0BA8C300B6D88E /* TorrentListViewController.m in Sources */,
+				095308701B0BF4E100B6D88E /* Type.m in Sources */,
 				095308481B0B9D7300B6D88E /* Torrent.m in Sources */,
+				095308791B0BF99B00B6D88E /* TypeArray.m in Sources */,
+				095308731B0BF56A00B6D88E /* TypeString.m in Sources */,
 				0953084B1B0B9D8700B6D88E /* TorrentList.m in Sources */,
 				095308641B0BAB8B00B6D88E /* TorrentCell.m in Sources */,
 				095308451B0B9D6500B6D88E /* File.m in Sources */,

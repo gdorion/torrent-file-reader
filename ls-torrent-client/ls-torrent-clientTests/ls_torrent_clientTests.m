@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import "TorrentDecoder.h"
 
 @interface ls_torrent_clientTests : XCTestCase
 
@@ -17,24 +18,28 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
+- (void)testDecodeTypeString {
+    NSString * fileToDecode = @"ubuntu-15.04-desktop-amd64.iso.torrent";
+    
     XCTAssert(YES, @"Pass");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testDecodeTypeInt {
+    XCTAssert(YES, @"Pass");
+}
+
+- (void)testDecodeTypeArray {
+    XCTAssert(YES, @"Pass");
+}
+
+- (void)testDecodeTypeDictionary {
+    XCTAssert(YES, @"Pass");
 }
 
 @end

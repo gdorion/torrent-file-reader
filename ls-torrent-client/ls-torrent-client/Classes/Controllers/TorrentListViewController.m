@@ -8,7 +8,15 @@
 
 #import "TorrentListViewController.h"
 
-@interface TorrentListViewController ()
+// Model
+#import "TorrentList.h"
+#import "Torrent.h"
+#import "File.h"
+
+// Views
+#import "TorrentCell.h"
+
+@interface TorrentListViewController () <NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic) NSTableView * tableView;
 
@@ -18,10 +26,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // TODO register cells.
-    // Update model values.
-    // implement tableview delegate methods.
 }
+
+#pragma mark - NSTableViewDatasource
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return [[TorrentList instance] numberOfTorrents];
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    
+    TorrentCell *cell = [tableView makeViewWithIdentifier:NSStringFromClass([TorrentCell class]) owner:self];
+    if (cell == nil) {
+        cell = [[TorrentCell alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+        cell.identifier = NSStringFromClass([TorrentCell class]);
+    }
+    
+    [cell updateWithTorrent:[[TorrentList instance] torrentAtIndex:row]];
+    
+    return cell;
+}
+
 
 @end

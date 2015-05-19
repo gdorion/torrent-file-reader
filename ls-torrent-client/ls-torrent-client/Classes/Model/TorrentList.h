@@ -15,6 +15,7 @@
 - (void)addTorrent:(NSString*)filepath;
 - (void)removeTorrent:(Torrent*)torrent;
 - (Torrent*)torrentAtIndex:(NSUInteger)index;
+- (NSUInteger)numberOfTorrents;
 
 + (TorrentList *)instance;
 
