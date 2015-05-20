@@ -26,6 +26,7 @@
 		095308791B0BF99B00B6D88E /* TypeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308781B0BF99B00B6D88E /* TypeArray.m */; };
 		095308801B0C02BE00B6D88E /* TypeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0953087F1B0C02BE00B6D88E /* TypeDictionary.m */; };
 		095308821B0C090800B6D88E /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 095308811B0C090800B6D88E /* test.txt */; };
+		095308851B0CB78300B6D88E /* TypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308841B0CB78300B6D88E /* TypeFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		0953087E1B0C02BE00B6D88E /* TypeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeDictionary.h; path = "ls-torrent-client/Classes/Bencode/Types/TypeDictionary.h"; sourceTree = "<group>"; };
 		0953087F1B0C02BE00B6D88E /* TypeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeDictionary.m; path = "ls-torrent-client/Classes/Bencode/Types/TypeDictionary.m"; sourceTree = "<group>"; };
 		095308811B0C090800B6D88E /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
+		095308831B0CB78300B6D88E /* TypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeFactory.h; path = "ls-torrent-client/Classes/Bencode/TypeFactory.h"; sourceTree = "<group>"; };
+		095308841B0CB78300B6D88E /* TypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeFactory.m; path = "ls-torrent-client/Classes/Bencode/TypeFactory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,8 @@
 				095308781B0BF99B00B6D88E /* TypeArray.m */,
 				0953087E1B0C02BE00B6D88E /* TypeDictionary.h */,
 				0953087F1B0C02BE00B6D88E /* TypeDictionary.m */,
+				095308831B0CB78300B6D88E /* TypeFactory.h */,
+				095308841B0CB78300B6D88E /* TypeFactory.m */,
 			);
 			name = Types;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				0953084F1B0B9E0500B6D88E /* TorrentDecoder.m in Sources */,
 				095308761B0BF68B00B6D88E /* TypeInteger.m in Sources */,
 				095308231B0B9C5E00B6D88E /* AppDelegate.m in Sources */,
+				095308851B0CB78300B6D88E /* TypeFactory.m in Sources */,
 				095308581B0BA8C300B6D88E /* TorrentListViewController.m in Sources */,
 				095308701B0BF4E100B6D88E /* Type.m in Sources */,
 				095308801B0C02BE00B6D88E /* TypeDictionary.m in Sources */,

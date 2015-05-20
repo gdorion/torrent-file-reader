@@ -20,6 +20,11 @@
     return self;
 }
 
+- (NSString*)removeDecodedValuefromString:(NSString*)string {
+    // Removing processed data.
+    return [string substringFromIndex:[self rawValueLength]];
+}
+
 - (NSInteger)rawValueLength {
     return 0;
 }

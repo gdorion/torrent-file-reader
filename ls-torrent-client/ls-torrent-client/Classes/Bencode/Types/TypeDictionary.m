@@ -6,9 +6,13 @@
 //  Copyright (c) 2015 Guillaume Dorion-Racine. All rights reserved.
 //
 
+// Types
 #import "TypeDictionary.h"
 #import "TypeString.h"
 #import "TypeInteger.h"
+
+// Factory
+#import "TypeFactory.h"
 
 @implementation TypeDictionary
 
@@ -17,38 +21,30 @@
     
     if (self) {
         self.decodedDictionary = [NSMutableDictionary new];
-        NSString * firstChar = [string substringWithRange:NSMakeRange(0, 1)];
         
-        if ([firstChar isEqualToString:@"d"]) {
+        // Removing the 'd' delimiter for dictionary.
+        self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
+        
+        while (self.rawValue.length != 1) {
             
-            // Removing the 'd' delimiter for dictionary.
-            self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
-            
-            // Dictionary Decoding loop.
-            while (self.rawValue.length > 0) {
-                
-                // Key processing
-                TypeString * newKey = [[TypeString alloc] initWithString:self.rawValue];
-                self.rawValue = [self.rawValue substringFromIndex:[newKey rawValueLength] - 1];
-                
-                // Value processing
-                Type * newValue = nil;
-                NSString * firstChar = [self.rawValue substringWithRange:NSMakeRange(0, 1)];
-                
-                // Dictionary
-                if ([firstChar isEqualToString:@"i"]) {
-                    newValue = [[TypeInteger alloc] initWithString:self.rawValue];
-                }
-                else {
-                    newValue = [[TypeString alloc] initWithString:self.rawValue];
-                }
-                
-                [self.decodedDictionary setValue:newValue forKey:newKey.decodedValue];
-                
-                // Removing processed data.
-                self.rawValue = [self.rawValue substringFromIndex:[newValue rawValueLength]];
+            if ([[self.rawValue substringToIndex:1] isEqualToString:@"e"]) {
+                break;
             }
+            
+            // Key
+            TypeString * newKey = [[TypeString alloc] initWithString:self.rawValue];
+            self.rawValue = [newKey removeDecodedValuefromString:self.rawValue];
+            
+            // Value
+            NSString * firstChar = [self.rawValue substringWithRange:NSMakeRange(0, 1)];
+            Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.rawValue];
+            self.rawValue = [newValue removeDecodedValuefromString:self.rawValue];
+            
+            // Save 
+            [self.decodedDictionary setValue:newValue forKey:newKey.decodedValue];
         }
+        
+        self.rawValue = [self removeDecodedValuefromString:string];
     }
     
     return self;
@@ -65,7 +61,7 @@
         }
     }
     
-    return totalLength;
+    return totalLength + 2; // "d" + values.length + "e"
 }
 
 @end

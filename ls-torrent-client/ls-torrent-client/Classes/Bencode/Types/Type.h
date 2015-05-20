@@ -15,6 +15,7 @@
 
 - (instancetype)initWithString:(NSString*)string;
 
+- (NSString*)removeDecodedValuefromString:(NSString*)string;
 - (NSInteger)rawValueLength;
 
 @end

@@ -28,7 +28,7 @@
     // Prepare models.
     [TorrentList instance];
     
-    [self loadViews];
+   // [self loadViews];
 }
 
 - (void)loadViews {

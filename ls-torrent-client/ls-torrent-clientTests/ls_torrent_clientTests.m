@@ -33,7 +33,9 @@
     
 //    NSString * path = [bundle pathForResource:@"ubuntu-1504-desktop-amd64" ofType:@"torrent"];
 
-    [self.decoder decodeTorrent:path];
+    NSDictionary * dict = [self.decoder decodeTorrent:path];
+    
+    // TODO bug with removal in list and array.
     
     XCTAssert(YES, @"Pass");
 }
