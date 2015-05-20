@@ -47,13 +47,13 @@
 }
 
 - (NSInteger)rawValueLength {
-    NSInteger totalLength = 2;
+    NSInteger totalLength = 1; // 'l' removed.
     
     for (Type * type in self.decodedArray) {
         totalLength += [type rawValueLength];
     }
     
-    return totalLength + 1;
+    return totalLength;
 }
 
 - (NSString *)debugDescription {
