@@ -27,29 +27,21 @@
     [super tearDown];
 }
 
-- (void)testDecodeTypeString {
+- (void)testDecodeDictionary {
     NSBundle *bundle = [NSBundle bundleForClass:[self.decoder class]];
-    NSString *path = [bundle pathForResource:@"test" ofType:@"txt"];
+    NSString *path = [bundle pathForResource:@"testDictionary" ofType:@"txt"];
     
-//    NSString * path = [bundle pathForResource:@"ubuntu-1504-desktop-amd64" ofType:@"torrent"];
-
     NSDictionary * dict = [self.decoder decodeTorrent:path];
+    XCTAssertEqual([[dict objectForKey:@"info" ] allKeys].count, 3);
+}
+
+- (void)testDecodeArray {
+    NSBundle *bundle = [NSBundle bundleForClass:[self.decoder class]];
+    NSString *path = [bundle pathForResource:@"testArray" ofType:@"txt"];
     
-    // TODO bug with removal in list and array.
-    
-    XCTAssert(YES, @"Pass");
+    NSDictionary * dict = [self.decoder decodeTorrent:path];
+    XCTAssertEqual([[dict objectForKey:@"info" ] allKeys].count, 3);
 }
 
-- (void)testDecodeTypeInt {
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testDecodeTypeArray {
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testDecodeTypeDictionary {
-    XCTAssert(YES, @"Pass");
-}
 
 @end

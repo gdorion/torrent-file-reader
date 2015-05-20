@@ -23,33 +23,37 @@
     if (self) {
         self.decodedArray = [NSMutableArray new];
     
-        // The raw value contains the remaining unparse data as the algorithm process it.
+        // Removing the 'l' delimiter for dictionary.
         self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
         
         // Array Decoding loop.
         while (self.rawValue.length > 0) {
-            NSString * firstChar = [self.rawValue substringWithRange:NSMakeRange(0, 1)];
-            Type * newType = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.rawValue];
-            if (newType) {
-                [self.decodedArray addObject:newType];
+            if ([[self.rawValue substringToIndex:1] isEqualToString:@"e"]) {
+                break;
             }
             
-            // Removing processed data.
-            [self.rawValue substringWithRange:NSMakeRange(0, [newType rawValueLength])];
+            // Value
+            NSString * firstChar = [self.rawValue substringWithRange:NSMakeRange(0, 1)];
+            Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.rawValue];
+            self.rawValue = [newValue removeDecodedValuefromString:self.rawValue];
+
+            [self.decodedArray addObject:newValue];
         }
+        
+        self.rawValue = [self removeDecodedValuefromString:string];
     }
     
     return self;
 }
 
 - (NSInteger)rawValueLength {
-    NSInteger totalLength = 0;
+    NSInteger totalLength = 2;
     
     for (Type * type in self.decodedArray) {
         totalLength += [type rawValueLength];
     }
     
-    return totalLength;
+    return totalLength + 1;
 }
 
 - (NSString *)debugDescription {

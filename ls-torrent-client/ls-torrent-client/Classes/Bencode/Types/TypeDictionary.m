@@ -25,7 +25,7 @@
         // Removing the 'd' delimiter for dictionary.
         self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
         
-        while (self.rawValue.length != 1) {
+        while (self.rawValue.length > 0) {
             
             if ([[self.rawValue substringToIndex:1] isEqualToString:@"e"]) {
                 break;
@@ -51,7 +51,7 @@
 }
 
 - (NSInteger)rawValueLength {
-    NSInteger totalLength = 0;
+    NSInteger totalLength = 2; // "d" + values.length + "e"
     
     for (NSString * key in [self.decodedDictionary allKeys]) {
         Type * type = [self.decodedDictionary objectForKey:key];
@@ -61,7 +61,7 @@
         }
     }
     
-    return totalLength + 2; // "d" + values.length + "e"
+    return totalLength + 1;
 }
 
 @end

@@ -50,6 +50,14 @@
         newDecodedValue = array;
         [self.torrentInformations setValue:array.decodedArray forKey:@"info"];
     }
+    
+    // No base structure, create an array
+    else {
+        // TODO
+        TypeArray * array = [[TypeArray alloc] initWithString:content];
+        newDecodedValue = array;
+        [self.torrentInformations setValue:array.decodedArray forKey:@"info"];
+    }
 }
 
 @end
