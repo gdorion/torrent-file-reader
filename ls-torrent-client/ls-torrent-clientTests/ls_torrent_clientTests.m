@@ -40,7 +40,8 @@
     NSString *path = [bundle pathForResource:@"testArray" ofType:@"txt"];
     
     NSDictionary * dict = [self.decoder decodeTorrent:path];
-    XCTAssertEqual([[dict objectForKey:@"info" ] allKeys].count, 3);
+    NSArray * array = [dict objectForKey:@"info"];
+    XCTAssertEqual(array.count, 6);
 }
 
 
