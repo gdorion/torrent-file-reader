@@ -12,12 +12,15 @@
 
 @interface ls_torrent_clientTests : XCTestCase
 
+@property (nonatomic) TorrentDecoder * decoder;
+
 @end
 
 @implementation ls_torrent_clientTests
 
 - (void)setUp {
     [super setUp];
+    self.decoder = [TorrentDecoder new];
 }
 
 - (void)tearDown {
@@ -25,7 +28,12 @@
 }
 
 - (void)testDecodeTypeString {
-    NSString * fileToDecode = @"ubuntu-15.04-desktop-amd64.iso.torrent";
+    NSBundle *bundle = [NSBundle bundleForClass:[self.decoder class]];
+    NSString *path = [bundle pathForResource:@"test" ofType:@"txt"];
+    
+//    NSString * path = [bundle pathForResource:@"ubuntu-1504-desktop-amd64" ofType:@"torrent"];
+
+    [self.decoder decodeTorrent:path];
     
     XCTAssert(YES, @"Pass");
 }

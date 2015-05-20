@@ -17,6 +17,7 @@
 @interface TorrentList()
 
 @property (nonatomic) NSMutableArray * torrentList;
+@property (nonatomic) TorrentDecoder * decoder;
 
 @end
 
@@ -26,6 +27,7 @@
     self = [super init];
     if (self) {
         self.torrentList = [NSMutableArray new];
+        self.decoder = [TorrentDecoder new];
     }
     
     return self;
@@ -33,7 +35,7 @@
 
 - (void)addTorrent:(NSString*)filepath {
     if (filepath) {
-        NSDictionary * torrentElements = [TorrentDecoder decodeTorrent:filepath];
+        NSDictionary * torrentElements = [self.decoder decodeTorrent:filepath];
         Torrent * newTorrent = [[Torrent alloc] initWithDictionary:torrentElements];
         
         [self.torrentList addObject:newTorrent];

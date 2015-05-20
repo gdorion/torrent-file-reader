@@ -24,6 +24,8 @@
 		095308731B0BF56A00B6D88E /* TypeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308721B0BF56A00B6D88E /* TypeString.m */; };
 		095308761B0BF68B00B6D88E /* TypeInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308751B0BF68B00B6D88E /* TypeInteger.m */; };
 		095308791B0BF99B00B6D88E /* TypeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308781B0BF99B00B6D88E /* TypeArray.m */; };
+		095308801B0C02BE00B6D88E /* TypeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0953087F1B0C02BE00B6D88E /* TypeDictionary.m */; };
+		095308821B0C090800B6D88E /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 095308811B0C090800B6D88E /* test.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +57,7 @@
 		0953084A1B0B9D8700B6D88E /* TorrentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentList.m; path = "ls-torrent-client/Classes/Model/TorrentList.m"; sourceTree = "<group>"; };
 		0953084D1B0B9E0500B6D88E /* TorrentDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentDecoder.h; path = "ls-torrent-client/Classes/Bencode/TorrentDecoder.h"; sourceTree = "<group>"; };
 		0953084E1B0B9E0500B6D88E /* TorrentDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentDecoder.m; path = "ls-torrent-client/Classes/Bencode/TorrentDecoder.m"; sourceTree = "<group>"; };
-		095308511B0BA67F00B6D88E /* ubuntu-15.04-desktop-amd64.iso.torrent */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ubuntu-15.04-desktop-amd64.iso.torrent"; sourceTree = "<group>"; };
+		095308511B0BA67F00B6D88E /* ubuntu-1504-desktop-amd64.torrent */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ubuntu-1504-desktop-amd64.torrent"; sourceTree = "<group>"; };
 		095308561B0BA8C300B6D88E /* TorrentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentListViewController.h; path = "ls-torrent-client/Classes/Controllers/TorrentListViewController.h"; sourceTree = "<group>"; };
 		095308571B0BA8C300B6D88E /* TorrentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentListViewController.m; path = "ls-torrent-client/Classes/Controllers/TorrentListViewController.m"; sourceTree = "<group>"; };
 		095308591B0BA98200B6D88E /* TorrentListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TorrentListView.xib; path = "ls-torrent-client/Resources/XIBs/TorrentListView.xib"; sourceTree = "<group>"; };
@@ -70,6 +72,9 @@
 		095308751B0BF68B00B6D88E /* TypeInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeInteger.m; path = "ls-torrent-client/Classes/Bencode/Types/TypeInteger.m"; sourceTree = "<group>"; };
 		095308771B0BF99B00B6D88E /* TypeArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeArray.h; path = "ls-torrent-client/Classes/Bencode/Types/TypeArray.h"; sourceTree = "<group>"; };
 		095308781B0BF99B00B6D88E /* TypeArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeArray.m; path = "ls-torrent-client/Classes/Bencode/Types/TypeArray.m"; sourceTree = "<group>"; };
+		0953087E1B0C02BE00B6D88E /* TypeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeDictionary.h; path = "ls-torrent-client/Classes/Bencode/Types/TypeDictionary.h"; sourceTree = "<group>"; };
+		0953087F1B0C02BE00B6D88E /* TypeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeDictionary.m; path = "ls-torrent-client/Classes/Bencode/Types/TypeDictionary.m"; sourceTree = "<group>"; };
+		095308811B0C090800B6D88E /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +214,8 @@
 		095308521B0BA68D00B6D88E /* Torrents */ = {
 			isa = PBXGroup;
 			children = (
-				095308511B0BA67F00B6D88E /* ubuntu-15.04-desktop-amd64.iso.torrent */,
+				095308511B0BA67F00B6D88E /* ubuntu-1504-desktop-amd64.torrent */,
+				095308811B0C090800B6D88E /* test.txt */,
 			);
 			name = Torrents;
 			sourceTree = "<group>";
@@ -253,6 +259,8 @@
 				095308751B0BF68B00B6D88E /* TypeInteger.m */,
 				095308771B0BF99B00B6D88E /* TypeArray.h */,
 				095308781B0BF99B00B6D88E /* TypeArray.m */,
+				0953087E1B0C02BE00B6D88E /* TypeDictionary.h */,
+				0953087F1B0C02BE00B6D88E /* TypeDictionary.m */,
 			);
 			name = Types;
 			sourceTree = "<group>";
@@ -341,6 +349,7 @@
 				095308661B0BABD800B6D88E /* TorrentCell.xib in Resources */,
 				0953085A1B0BA98200B6D88E /* TorrentListView.xib in Resources */,
 				0953082A1B0B9C5E00B6D88E /* MainMenu.xib in Resources */,
+				095308821B0C090800B6D88E /* test.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +373,7 @@
 				095308231B0B9C5E00B6D88E /* AppDelegate.m in Sources */,
 				095308581B0BA8C300B6D88E /* TorrentListViewController.m in Sources */,
 				095308701B0BF4E100B6D88E /* Type.m in Sources */,
+				095308801B0C02BE00B6D88E /* TypeDictionary.m in Sources */,
 				095308481B0B9D7300B6D88E /* Torrent.m in Sources */,
 				095308791B0BF99B00B6D88E /* TypeArray.m in Sources */,
 				095308731B0BF56A00B6D88E /* TypeString.m in Sources */,

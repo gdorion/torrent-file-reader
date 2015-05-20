@@ -20,4 +20,8 @@
     return self;
 }
 
+- (NSInteger)rawValueLength {
+    return 0;
+}
+
 @end

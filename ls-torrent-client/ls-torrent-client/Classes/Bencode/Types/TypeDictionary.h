@@ -1,5 +1,5 @@
 //
-//  TypeArray.h
+//  TypeDictionary.h
 //  ls-torrent-client
 //
 //  Created by Guillaume Dorion-Racine on 2015-05-19.
@@ -8,8 +8,8 @@
 
 #import "Type.h"
 
-@interface TypeArray : Type
+@interface TypeDictionary : Type
 
-@property (nonatomic) NSMutableArray * decodedArray;
+@property (nonatomic) NSMutableDictionary * decodedDictionary;
 
 @end

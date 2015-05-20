@@ -19,16 +19,16 @@
         NSString * intDelimiter = [string substringWithRange:NSMakeRange(0, 1)];
 
         if ([intDelimiter isEqualToString:@"i"]) {
-            NSString * content = [string substringWithRange:NSMakeRange(1, string.length - 1)];
+            self.rawValue = [string substringWithRange:NSMakeRange(1, string.length - 1)];
             
-            for(int i = 0; i < content.length; i++) {
-                if ([[content substringWithRange:NSMakeRange(i, 1)] isEqualToString:@"e"]) {
+            for(int i = 1; i < self.rawValue.length; i++) {
+                if ([[self.rawValue substringWithRange:NSMakeRange(i, 1)] isEqualToString:@"e"]) {
                     // End delimiter was hit. Desired content found.
 
                     if (i > 0) {
                         // Discarding empty integer.
-                        content = [content substringWithRange:NSMakeRange(0, i - 1)];
-                        self.decodedValue = [content integerValue];
+                        self.rawValue = [self.rawValue substringWithRange:NSMakeRange(0, i)];
+                        self.decodedValue = [self.rawValue integerValue];
                     }
                     
                     break;
@@ -38,6 +38,10 @@
     }
     
     return self;
+}
+
+- (NSInteger)rawValueLength {
+    return self.rawValue.length + 2; // i42e -> 1 + 2 + 1;
 }
 
 

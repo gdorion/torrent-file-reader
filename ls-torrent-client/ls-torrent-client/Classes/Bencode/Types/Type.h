@@ -15,4 +15,6 @@
 
 - (instancetype)initWithString:(NSString*)string;
 
+- (NSInteger)rawValueLength;
+
 @end
