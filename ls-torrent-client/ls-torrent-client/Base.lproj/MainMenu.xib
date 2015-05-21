@@ -666,8 +666,8 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="ls-torrent-client" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+        <window title="Lightspeed Torrent List" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -677,19 +677,57 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="07150D33-62A8-4BE5-A586-D2FA273801BB" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="BOY-oX-Z4x">
                 <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarCustomizeToolbarItem" id="7fc-W9-Nx9"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="NB5-tN-Uyj"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="vgc-Zc-FtF"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="BKW-UH-sgy"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="ur1-eY-gef"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="oyl-Ix-70A"/>
+                    <toolbarItem implicitItemIdentifier="F2A75734-71EB-45FC-83B3-F712398D5E32" label="" paletteLabel="" image="NSRemoveTemplate" id="gKh-fL-zJu" userLabel="Remove Torrent Button">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="40" height="20"/>
+                        <size key="maxSize" width="40" height="25"/>
+                        <button key="view" verticalHuggingPriority="750" id="vOR-Y7-ewS">
+                            <rect key="frame" x="26" y="14" width="40" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mAi-Om-JIs">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="removeTorrent:" target="Voe-Tx-rLC" id="Gnd-Co-h0f"/>
+                            </connections>
+                        </button>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="429351A6-3043-4A76-A1B3-34FB03B3B08B" label="" paletteLabel="" image="NSAddTemplate" id="249-Mk-hqS" userLabel="Add Torrent Button">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="40" height="25"/>
+                        <size key="maxSize" width="40" height="25"/>
+                        <button key="view" verticalHuggingPriority="750" id="8jo-EO-p34">
+                            <rect key="frame" x="0.0" y="14" width="40" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aw1-z1-5R9">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="addTorrent:" target="Voe-Tx-rLC" id="anU-9a-If1"/>
+                            </connections>
+                        </button>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="NB5-tN-Uyj"/>
-                    <toolbarItem reference="vgc-Zc-FtF"/>
-                    <toolbarItem reference="oyl-Ix-70A"/>
-                    <toolbarItem reference="BKW-UH-sgy"/>
+                    <toolbarItem reference="249-Mk-hqS"/>
+                    <toolbarItem reference="gKh-fL-zJu"/>
                 </defaultToolbarItems>
+                <connections>
+                    <outlet property="delegate" destination="-2" id="wvW-xk-Q10"/>
+                </connections>
             </toolbar>
         </window>
     </objects>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
+    </resources>
 </document>

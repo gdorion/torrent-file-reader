@@ -54,14 +54,15 @@
     NSInteger totalLength = 2; // "d" + values.length + "e"
     
     for (NSString * key in [self.decodedDictionary allKeys]) {
-        Type * type = [self.decodedDictionary objectForKey:key];
+        totalLength += key.length + 1; // ":"
         
+        Type * type = [self.decodedDictionary objectForKey:key];
         if (type) {
             totalLength += [type rawValueLength];
         }
     }
     
-    return totalLength + 1;
+    return totalLength;
 }
 
 @end

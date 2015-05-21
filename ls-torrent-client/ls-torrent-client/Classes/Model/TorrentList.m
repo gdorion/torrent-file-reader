@@ -56,6 +56,10 @@
     return nil;
 }
 
+- (NSUInteger)numberOfTorrents {
+    return self.torrentList.count;
+}
+
 #pragma mark - Singleton accessor
 
 + (TorrentList *)instance {

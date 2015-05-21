@@ -18,7 +18,8 @@
 
 @property (weak) IBOutlet NSWindow *window;
 
-@property (nonatomic) TorrentListViewController * torrentListController;
+@property (nonatomic) IBOutlet NSButton * addTorrentButton;
+@property (nonatomic) IBOutlet NSButton * removeTorrentButton;
 
 @end
 
@@ -28,12 +29,23 @@
     // Prepare models.
     [TorrentList instance];
     
-   // [self loadViews];
+    [self loadViews];
 }
 
 - (void)loadViews {
-    self.torrentListController = [[TorrentListViewController alloc] initWithNibName:@"TorrentListView" bundle:nil];
-    [self.window.contentView addSubview:self.torrentListController.view];
+    self.torrentListViewController = [[TorrentListViewController alloc] initWithNibName:@"TorrentListViewController" bundle:nil];
+    [self.window.contentView addSubview:self.torrentListViewController.view];
+    self.torrentListViewController.view.frame = ((NSView*)self.window.contentView).bounds;
+}
+
+#pragma mark - NSToolbarItem Actions
+
+- (IBAction)addTorrent:(id)sender {
+    [self.torrentListViewController addTorrent];
+}
+
+- (IBAction)removeTorrent:(id)sender {
+    [self.torrentListViewController removeTorrent];
 }
 
 @end

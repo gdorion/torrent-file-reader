@@ -21,6 +21,7 @@
                 </textField>
             </subviews>
             <connections>
+                <outlet property="nameTextField" destination="VDs-bA-teS" id="G8q-2x-Pq9"/>
                 <outlet property="textField" destination="VDs-bA-teS" id="aRb-kA-10a"/>
             </connections>
             <point key="canvasLocation" x="309.5" y="357"/>

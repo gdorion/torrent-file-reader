@@ -40,6 +40,7 @@
             [self.decodedArray addObject:newValue];
         }
         
+        // Remove 'e' end delimiter
         self.rawValue = [self removeDecodedValuefromString:string];
     }
     
@@ -47,18 +48,14 @@
 }
 
 - (NSInteger)rawValueLength {
-    NSInteger totalLength = 1; // 'l' removed.
+    NSInteger totalLength = 2; // 'l' + 'e".
     
     for (Type * type in self.decodedArray) {
         totalLength += [type rawValueLength];
     }
     
     return totalLength;
-}
 
-- (NSString *)debugDescription {
-//    return [NSString strin];
-    return @"TODO";
 }
 
 

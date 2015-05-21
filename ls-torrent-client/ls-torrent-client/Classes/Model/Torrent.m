@@ -10,7 +10,7 @@
 #import "File.h"
 
 const NSString * kTorrentNameDictKey = @"name";
-const NSString * kTorrentLengthDictKey = @"name";
+const NSString * kTorrentLengthDictKey = @"length";
 const NSString * kTorrentChecksumDictKey = @"checksum";
 const NSString * kTorrentCreationClientDictKey = @"creationclient";
 const NSString * kTorrentCreationDateDictKey = @"creationdate";
@@ -20,7 +20,8 @@ const NSString * kTorrentCreationDateDictKey = @"creationdate";
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary {
     self = [super init];
     
-    if (self){
+    if (self) {
+//        NSDictionary * info = [dictionary objectForKey:@"info"];
         self.creationClient = @"todo creation client";
         self.creationDate = [NSDate date];
         self.file = [[File alloc] initWithName:@"name" andLength:@"123" andChecksum:@"checksum"];

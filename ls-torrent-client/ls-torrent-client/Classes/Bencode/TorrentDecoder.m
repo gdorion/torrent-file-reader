@@ -23,7 +23,8 @@
     self.torrentInformations = [NSMutableDictionary new];
     
     // Retreive torrent informations.
-    NSString * fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSError * error = [NSError new];
+    NSString * fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSASCIIStringEncoding error:&error];
     [self decodedContentFromString:fileContent];
     
     return self.torrentInformations;
