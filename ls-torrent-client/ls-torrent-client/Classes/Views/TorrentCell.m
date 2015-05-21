@@ -17,18 +17,22 @@
 @property (weak) IBOutlet NSTextField * nameTextField;
 @property (weak) IBOutlet NSTextField * lengthTextField;
 @property (weak) IBOutlet NSTextField * checksumTextField;
-@property (weak) IBOutlet NSTextField * creationClientTextField;
-@property (weak) IBOutlet NSTextField * creationDateTextField;
-@property (weak) IBOutlet NSTextField * filePathTextField;
 
 @end
 
 @implementation TorrentCell
 
-- (void)updateWithTorrent:(Torrent *)torrent {
-    NSString * files =  [torrent.fileNameList componentsJoinedByString:@","];
-    [self.nameTextField setStringValue:files];
-    self.nameTextField.backgroundColor = [NSColor redColor];
+- (void)updateWithFile:(File *)file {
+    NSString * unknownStringValue = @"unknown";
+    
+    NSString * name = file.name ? file.name : unknownStringValue;
+    [self.nameTextField setStringValue:name];
+    
+    NSString * length = file.length > 0 ? [NSString stringWithFormat:@"%ld", file.length] : unknownStringValue;
+    [self.lengthTextField setStringValue:length];
+    
+    NSString * checksum = file.checksum  ? file.checksum : unknownStringValue;
+    [self.checksumTextField setStringValue:checksum];
 }
 
 @end

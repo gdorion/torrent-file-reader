@@ -683,22 +683,6 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="BKW-UH-sgy"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="ur1-eY-gef"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="oyl-Ix-70A"/>
-                    <toolbarItem implicitItemIdentifier="F2A75734-71EB-45FC-83B3-F712398D5E32" label="" paletteLabel="" image="NSRemoveTemplate" id="gKh-fL-zJu" userLabel="Remove Torrent Button">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="40" height="20"/>
-                        <size key="maxSize" width="40" height="25"/>
-                        <button key="view" verticalHuggingPriority="750" id="vOR-Y7-ewS">
-                            <rect key="frame" x="26" y="14" width="40" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mAi-Om-JIs">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="removeTorrent:" target="Voe-Tx-rLC" id="Gnd-Co-h0f"/>
-                            </connections>
-                        </button>
-                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="429351A6-3043-4A76-A1B3-34FB03B3B08B" label="" paletteLabel="" image="NSAddTemplate" id="249-Mk-hqS" userLabel="Add Torrent Button">
                         <nil key="toolTip"/>
                         <size key="minSize" width="40" height="25"/>
@@ -718,7 +702,6 @@
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="249-Mk-hqS"/>
-                    <toolbarItem reference="gKh-fL-zJu"/>
                 </defaultToolbarItems>
                 <connections>
                     <outlet property="delegate" destination="-2" id="wvW-xk-Q10"/>
@@ -728,6 +711,5 @@
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

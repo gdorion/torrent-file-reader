@@ -11,6 +11,5 @@
 @interface TorrentListViewController : NSViewController
 
 - (void)addTorrent;
-- (void)removeTorrent;
 
 @end

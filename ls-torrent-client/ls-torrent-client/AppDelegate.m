@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 // Model
-#import "TorrentList.h"
+#import "TorrentModel.h"
 
 // Controller
 #import "TorrentListViewController.h"
@@ -27,7 +27,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Prepare models.
-    [TorrentList instance];
+    [TorrentModel instance];
     
     [self loadViews];
 }
@@ -42,10 +42,6 @@
 
 - (IBAction)addTorrent:(id)sender {
     [self.torrentListViewController addTorrent];
-}
-
-- (IBAction)removeTorrent:(id)sender {
-    [self.torrentListViewController removeTorrent];
 }
 
 @end

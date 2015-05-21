@@ -10,13 +10,13 @@
 
 @class Torrent;
 
-@interface TorrentList : NSObject
+@interface TorrentModel : NSObject
+
+@property (nonatomic) Torrent * torrent;
 
 - (void)addTorrent:(NSString*)filepath;
-- (void)removeTorrent:(Torrent*)torrent;
-- (Torrent*)torrentAtIndex:(NSUInteger)index;
-- (NSUInteger)numberOfTorrents;
+- (NSUInteger)numberOfFiles;
 
-+ (TorrentList *)instance;
++ (TorrentModel *)instance;
 
 @end

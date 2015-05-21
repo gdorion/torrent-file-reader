@@ -8,10 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class Torrent;
+@class File;
 
 @interface TorrentCell : NSTableCellView
 
-- (void)updateWithTorrent:(Torrent*)torrent;
+- (void)updateWithFile:(File *)file;
 
 @end

@@ -12,13 +12,15 @@
 #import "TorrentCell.h"
 
 // Model
-#import "TorrentList.h"
+#import "TorrentModel.h"
 #import "Torrent.h"
 #import "File.h"
 
 @interface TorrentListViewController () <NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic) IBOutlet NSTableView * tableView;
+@property (nonatomic) IBOutlet NSTextField * creationDateLabel;
+@property (nonatomic) IBOutlet NSTextField * creationClientLabel;
 
 @end
 
@@ -32,18 +34,13 @@
 #pragma mark - NSTableViewDatasource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [[TorrentList instance] numberOfTorrents];
+    return [[TorrentModel instance] numberOfFiles];
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    
-    TorrentCell *cell = [tableView makeViewWithIdentifier:NSStringFromClass([TorrentCell class]) owner:self];
-    if (cell == nil) {
-        cell = [[TorrentCell alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
-        cell.identifier = NSStringFromClass([TorrentCell class]);
-    }
-    
-    [cell updateWithTorrent:[[TorrentList instance] torrentAtIndex:row]];
+    TorrentCell *cell = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    File * file = [[[TorrentModel instance] torrent].fileList objectAtIndex:row];
+    [cell updateWithFile:file];
     
     return cell;
 }
@@ -53,13 +50,23 @@
 - (void)addTorrent {
     NSString * torrentFilePath = [self filePathFromOpenDialog];
     if (torrentFilePath) {
-        [[TorrentList instance] addTorrent:torrentFilePath];
+        [[TorrentModel instance] addTorrent:torrentFilePath];
+        
+        // File list
         [self.tableView reloadData];
+        
+        // Date
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+        NSString *stringDate = [dateFormatter stringFromDate:[[TorrentModel instance] torrent].creationDate];
+        [self.creationDateLabel setStringValue:stringDate];
+        
+        // Created by
+        NSString * client = [[TorrentModel instance] torrent].creationClient;
+        if (client) {
+            [self.creationClientLabel setStringValue:client];
+        }
     }
-}
-
-- (void)removeTorrent {
-    
 }
 
 #pragma mark - Dialogs

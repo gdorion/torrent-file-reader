@@ -154,7 +154,7 @@ NSInteger kTorrentSHA1Lenght = 20;
             
             for (Type * nestedValue in nestedArray.decodedArray) {
                 if ([nestedValue isKindOfClass:[TypeDictionary class]]) {
-                    TypeDictionary * nestedDictionary = (TypeDictionary*)dictValue;
+                    TypeDictionary * nestedDictionary = (TypeDictionary*)nestedValue;
                     resultValue = [self typeForKey:key inDictionaryTree:nestedDictionary.decodedDictionary];
                     
                     if (resultValue) {

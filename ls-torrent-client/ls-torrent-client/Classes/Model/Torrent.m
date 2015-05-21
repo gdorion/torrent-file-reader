@@ -18,7 +18,7 @@
         self.creationClient = creationClient;
         
         // TODO Convert string to NSDate.
-        self.creationDate = [NSDate date];
+        self.creationDate = [NSDate dateWithTimeIntervalSince1970:creationDate];
                 
         self.fileList = fileList;
     }
