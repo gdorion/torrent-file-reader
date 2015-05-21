@@ -14,6 +14,8 @@
 @property (nonatomic) NSString * creationClient;
 @property (nonatomic) NSDate * creationDate;
 
-- (id)initWithFileList:(NSArray*)fileList andCreationClient:(NSString*)creationClient andCreationDate:(NSString*)creationDate;
+- (id)initWithFileList:(NSArray*)fileList andCreationClient:(NSString*)creationClient andCreationDate:(NSInteger)creationDate;
+
+- (NSArray*)fileNameList;
 
 @end

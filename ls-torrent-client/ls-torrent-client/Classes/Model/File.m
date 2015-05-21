@@ -10,12 +10,12 @@
 
 @implementation File
 
-- (instancetype)initWithName:(NSString*)name andLength:(NSString*)length andChecksum:(NSString*)checksum {
+- (instancetype)initWithName:(NSString*)name andLength:(NSInteger)length andChecksum:(NSString*)checksum {
     self = [super init];
     
     if (self){
         self.name = name;
-        self.length = [length integerValue];
+        self.length = length;
         self.checksum = checksum;
     }
     

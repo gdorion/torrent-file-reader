@@ -31,8 +31,8 @@
     NSBundle *bundle = [NSBundle bundleForClass:[self.decoder class]];
     NSString *path = [bundle pathForResource:@"testDictionary" ofType:@"txt"];
     
-    NSDictionary * dict = [self.decoder decodeTorrent:path];
-    XCTAssertEqual([[dict objectForKey:@"info" ] allKeys].count, 3);
+//    NSDictionary * dict = [self.decoder decodeTorrent:path];
+//    XCTAssertEqual([[dict objectForKey:@"info" ] allKeys].count, 3);
 }
 
 - (void)testDecodeArray {

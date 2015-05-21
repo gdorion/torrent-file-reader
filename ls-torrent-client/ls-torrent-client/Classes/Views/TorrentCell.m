@@ -26,7 +26,8 @@
 @implementation TorrentCell
 
 - (void)updateWithTorrent:(Torrent *)torrent {
-    [self.nameTextField setStringValue:torrent.creationClient];
+    NSString * files =  [torrent.fileNameList componentsJoinedByString:@","];
+    [self.nameTextField setStringValue:files];
     self.nameTextField.backgroundColor = [NSColor redColor];
 }
 

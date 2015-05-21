@@ -11,7 +11,7 @@
 
 @implementation Torrent
 
-- (id)initWithFileList:(NSArray*)fileList andCreationClient:(NSString*)creationClient andCreationDate:(NSString*)creationDate {
+- (id)initWithFileList:(NSArray*)fileList andCreationClient:(NSString*)creationClient andCreationDate:(NSInteger)creationDate {
     self = [super init];
     
     if (self) {
@@ -24,6 +24,16 @@
     }
     
     return self;
+}
+
+- (NSArray*)fileNameList {
+    NSMutableArray * names = [NSMutableArray new];
+    
+    for (File * file in self.fileList) {
+        [names addObject:file.name];
+    }
+    
+    return names;
 }
 
 @end

@@ -14,6 +14,6 @@
 @property (nonatomic) NSUInteger length;
 @property (nonatomic) NSString * checksum;
 
-- (instancetype)initWithName:(NSString*)name andLength:(NSString*)length andChecksum:(NSString*)checksum;
+- (instancetype)initWithName:(NSString*)name andLength:(NSInteger)length andChecksum:(NSString*)checksum;
 
 @end

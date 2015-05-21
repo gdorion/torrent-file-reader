@@ -11,12 +11,13 @@
 #import "Type.h"
 #import "TypeDictionary.h"
 #import "TypeArray.h"
+#import "TypeInteger.h"
+#import "TypeString.h"
 
 #import "Torrent.h"
 #import "File.h"
 
-
-NSString * kTorrentNameDictKey = @"name";
+NSString * kTorrentPathDictKey = @"path";
 NSString * kTorrentLengthDictKey = @"length";
 NSString * kTorrentChecksumDictKey = @"checksum";
 NSString * kTorrentCreationClientDictKey = @"created by";
@@ -43,58 +44,79 @@ NSString * kTorrentFilesDictKey = @"files";
 }
 
 - (Torrent*)torrentFromDictionary:(NSDictionary*)dictionary {
-    NSString * creationDate = [self stringForKey:kTorrentCreationDateDictKey inDictionaryTree:dictionary];
-    NSString * creationClient = [self stringForKey:kTorrentCreationClientDictKey inDictionaryTree:dictionary];
+    NSMutableArray * fileList = [NSMutableArray new];
     
-    NSDictionary * files = [self typeForKey:kTorrentFilesDictKey inDictionaryTree:dictionary];
-    
-//    NSString * name   = [self valueForKey:kTorrentNameDictKey inDictionaryTree:dictionary];
-//    NSString * length = [self valueForKey:kTorrentLengthDictKey inDictionaryTree:dictionary];
-//    NSString * checksum = [self valueForKey:kTorrentChecksumDictKey inDictionaryTree:dictionary];
-    
-    Torrent * newTorrent = [[Torrent alloc] initWithFileList:@[] andCreationClient:creationClient andCreationDate:creationDate];
-    return newTorrent;
-}
-
-#pragma mark - Dictionary to Torrent Objects
-
-- (NSString*)stringForKey:(NSString*)key inDictionaryTree:(NSDictionary*)dictionary {
-    NSString * resultValue = nil;
-    
-    for (NSString * dictKey in [dictionary allKeys]) {
-        Type * dictValue = [dictionary objectForKey:dictKey];
-        
-        if ([dictKey isEqualToString:key]) {
-            return [dictValue stringValue];
-        }
-        else if ([dictValue isKindOfClass:[TypeDictionary class]]) {
-            TypeDictionary * nestedDictionary = (TypeDictionary*)dictValue;
-            resultValue = [self stringForKey:key inDictionaryTree:nestedDictionary.decodedDictionary];
-            
-            if (resultValue.length > 0) {
-                return resultValue;
-            }
-        }
-        else if ([dictValue isKindOfClass:[TypeArray class]]) {
-            TypeArray * nestedArray = (TypeArray*)dictValue;
-            
-            for (Type * nestedValue in nestedArray.decodedArray) {
-                if ([nestedValue isKindOfClass:[TypeDictionary class]]) {
-                    TypeDictionary * nestedDictionary = (TypeDictionary*)dictValue;
-                    resultValue = [self stringForKey:key inDictionaryTree:nestedDictionary.decodedDictionary];
-                    
-                    if (resultValue.length > 0) {
-                        return resultValue;
-                    }
-                }
+    // Many files in folder
+    Type * filesType = [self typeForKey:kTorrentFilesDictKey inDictionaryTree:dictionary];
+    if (filesType) {
+        if ([filesType isKindOfClass:[TypeArray class]]) {
+            TypeArray * filesTypeArray = (TypeArray*)filesType;
+            for (TypeDictionary * dict in filesTypeArray.decodedArray) {
+                NSString * path = [self stringForKey:kTorrentPathDictKey inDictionaryTree:dict.decodedDictionary].decodedValue;
+                NSInteger length = [self intForKey:kTorrentPathDictKey inDictionaryTree:dict.decodedDictionary].decodedValue;
+                
+                File * newFile = [[File alloc] initWithName:path andLength:@"none" andChecksum:nil];
+                [fileList addObject:newFile];
             }
         }
     }
     
-    return nil;
+    // Single file
+    else {
+        NSString * path = [self stringForKey:kTorrentPathDictKey inDictionaryTree:dictionary].decodedValue;
+        NSInteger length = [self intForKey:kTorrentPathDictKey inDictionaryTree:dictionary].decodedValue;
+        
+        File * newFile = [[File alloc] initWithName:path andLength:@"none" andChecksum:nil];
+        [fileList addObject:newFile];
+    }
+    
+    // Other informations.
+    NSInteger creationDate = [self intForKey:kTorrentCreationDateDictKey inDictionaryTree:dictionary].decodedValue;
+    NSString * creationClient = [self stringForKey:kTorrentCreationClientDictKey inDictionaryTree:dictionary].decodedValue;
+    
+    Torrent * newTorrent = [[Torrent alloc] initWithFileList:fileList andCreationClient:creationClient andCreationDate:creationDate];
+    return newTorrent;
 }
 
-- (Type*)typeForKey:(NSString*)key inDictionaryTree:(NSDictionary*)dictionary {
+- (TypeString*)stringForKey:(NSString*)key inDictionaryTree:(id)dictionary {
+    Type * resultValue = [self typeForKey:key inDictionaryTree:dictionary];
+    
+    if ([resultValue isKindOfClass:[TypeArray class]]) {
+        TypeArray * nestedArray = (TypeArray*)resultValue;
+        return [nestedArray.decodedArray firstObject];
+    }
+    else if ([resultValue isKindOfClass:[TypeArray class]]) {
+        TypeDictionary * nestedDictionary = (TypeDictionary*)resultValue;
+        resultValue = [self intForKey:key inDictionaryTree:nestedDictionary.decodedDictionary];
+    }
+    else if ([resultValue isKindOfClass:[TypeString class]]) {
+        return (TypeString*)resultValue;
+    }
+    
+    return (TypeString*)resultValue;
+
+}
+                
+- (TypeInteger*)intForKey:(NSString*)key inDictionaryTree:(id)dictionary {
+    Type * resultValue = [self typeForKey:key inDictionaryTree:dictionary];
+    
+    if ([resultValue isKindOfClass:[TypeArray class]]) {
+        TypeArray * nestedArray = (TypeArray*)resultValue;
+        return [nestedArray.decodedArray firstObject];
+    }
+    else if ([resultValue isKindOfClass:[TypeArray class]]) {
+        TypeDictionary * nestedDictionary = (TypeDictionary*)resultValue;
+        resultValue = [self intForKey:key inDictionaryTree:nestedDictionary.decodedDictionary];
+    }
+    else if ([resultValue isKindOfClass:[TypeInteger class]]) {
+        return (TypeInteger*)resultValue;
+    }
+    
+    return (TypeInteger*)resultValue;
+}
+
+
+- (Type*)typeForKey:(NSString*)key inDictionaryTree:(id)dictionary {
     Type * resultValue = nil;
     
     for (NSString * dictKey in [dictionary allKeys]) {
@@ -142,7 +164,7 @@ NSString * kTorrentFilesDictKey = @"files";
     if ([firstChar isEqualToString:@"d"]) {
         TypeDictionary * dictionary = [[TypeDictionary alloc] initWithString:content];
         newDecodedValue = dictionary;
-        [self.torrentInformations setValue:dictionary.decodedDictionary forKey:@"info"];
+        self.torrentInformations = dictionary.decodedDictionary;
     }
     
     // Array

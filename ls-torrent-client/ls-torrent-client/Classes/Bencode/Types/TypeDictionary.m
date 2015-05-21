@@ -22,7 +22,7 @@
     if (self) {
         self.decodedDictionary = [NSMutableDictionary new];
         
-        // Removing the 'd' delimiter for dictionary.
+        // Removing 'd'
         self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
         
         while (self.rawValue.length > 0) {
@@ -49,11 +49,8 @@
             }
         }
         
-        // Size checksum.
-        NSString * removingProcessedString = [self removeDecodedValuefromString:string];
-        if (removingProcessedString.length == self.rawValue.length) {
-            self.rawValue = removingProcessedString;
-        }
+        // removing 'e'
+        self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
     }
     
     return self;

@@ -41,7 +41,7 @@
         }
         
         // Remove 'e' end delimiter
-        self.rawValue = [self removeDecodedValuefromString:string];
+        self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
     }
     
     return self;
