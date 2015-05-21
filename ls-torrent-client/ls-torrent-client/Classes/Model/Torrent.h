@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class File;
-
 @interface Torrent : NSObject
 
-@property (nonatomic) File * file;
+@property (nonatomic) NSArray * fileList;
 @property (nonatomic) NSString * creationClient;
 @property (nonatomic) NSDate * creationDate;
 
-- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
+- (id)initWithFileList:(NSArray*)fileList andCreationClient:(NSString*)creationClient andCreationDate:(NSString*)creationDate;
 
 @end

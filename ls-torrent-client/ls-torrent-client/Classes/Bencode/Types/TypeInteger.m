@@ -34,13 +34,17 @@
     return self;
 }
 
-- (NSInteger)rawValueLength {
+- (NSInteger)decodedValueSize {
     // Value length + "i" + "e"
-    return [NSString stringWithFormat:@"%ld", self.decodedValue].length + 2;
+    return [self stringValue].length + 2;
+}
+
+- (NSString*)stringValue {
+    return [NSString stringWithFormat:@"%ld", self.decodedValue];
 }
 
 - (NSString *)debugDescription {
-    return [NSString stringWithFormat:@"%ld", self.decodedValue];
+    return [self stringValue];
 }
 
 @end

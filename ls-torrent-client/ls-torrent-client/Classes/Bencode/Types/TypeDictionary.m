@@ -40,29 +40,46 @@
             Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.rawValue];
             self.rawValue = [newValue removeDecodedValuefromString:self.rawValue];
             
-            // Save 
-            [self.decodedDictionary setValue:newValue forKey:newKey.decodedValue];
+            // Save
+            if (newKey.decodedValue) {
+                [self.decodedDictionary setValue:newValue forKey:newKey.decodedValue];
+            }
+            else {
+                break;
+            }
         }
         
-        self.rawValue = [self removeDecodedValuefromString:string];
+        // Size checksum.
+        NSString * removingProcessedString = [self removeDecodedValuefromString:string];
+        if (removingProcessedString.length == self.rawValue.length) {
+            self.rawValue = removingProcessedString;
+        }
     }
     
     return self;
 }
 
-- (NSInteger)rawValueLength {
+- (NSInteger)decodedValueSize {
     NSInteger totalLength = 2; // "d" + values.length + "e"
     
     for (NSString * key in [self.decodedDictionary allKeys]) {
-        totalLength += key.length + 1; // ":"
+        totalLength += key.length + 1; // ":" and Key is always a TypeString
         
         Type * type = [self.decodedDictionary objectForKey:key];
         if (type) {
-            totalLength += [type rawValueLength];
+            totalLength += [type decodedValueSize];
         }
     }
     
     return totalLength;
+}
+
+- (NSString *)debugDescription {
+    return [NSString stringWithFormat:@"%@", self.decodedDictionary];
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@", self.decodedDictionary];
 }
 
 @end

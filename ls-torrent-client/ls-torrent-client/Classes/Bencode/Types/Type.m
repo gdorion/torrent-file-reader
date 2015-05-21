@@ -22,11 +22,15 @@
 
 - (NSString*)removeDecodedValuefromString:(NSString*)string {
     // Removing processed data.
-    return [string substringFromIndex:[self rawValueLength]];
+    return [string substringFromIndex:[self decodedValueSize]];
 }
 
-- (NSInteger)rawValueLength {
+- (NSInteger)decodedValueSize {
     return 0;
+}
+
+- (NSString*)stringValue {
+    return nil;
 }
 
 @end

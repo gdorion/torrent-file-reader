@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class Torrent;
+
 @interface TorrentDecoder : NSObject
 
-- (NSDictionary*)decodeTorrent:(NSString*)filePath;
+- (Torrent*)decodeTorrent:(NSString*)filePath;
 
 @end

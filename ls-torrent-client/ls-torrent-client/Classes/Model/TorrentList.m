@@ -35,9 +35,7 @@
 
 - (void)addTorrent:(NSString*)filepath {
     if (filepath) {
-        NSDictionary * torrentElements = [self.decoder decodeTorrent:filepath];
-        Torrent * newTorrent = [[Torrent alloc] initWithDictionary:torrentElements];
-        
+        Torrent * newTorrent = [self.decoder decodeTorrent:filepath];
         [self.torrentList addObject:newTorrent];
     }
 }

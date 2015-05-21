@@ -51,12 +51,16 @@
     return range.location == NSNotFound;
 }
 
-- (NSInteger)rawValueLength {
+- (NSInteger)decodedValueSize {
     // Length of size + ":" + value size.
     return self.startIndex + self.length;
 }
 
 - (NSString *)debugDescription {
+    return self.decodedValue;
+}
+
+- (NSString*)stringValue {
     return self.decodedValue;
 }
 

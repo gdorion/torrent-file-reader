@@ -47,16 +47,23 @@
     return self;
 }
 
-- (NSInteger)rawValueLength {
+- (NSInteger)decodedValueSize {
     NSInteger totalLength = 2; // 'l' + 'e".
     
     for (Type * type in self.decodedArray) {
-        totalLength += [type rawValueLength];
+        totalLength += [type decodedValueSize];
     }
     
     return totalLength;
 
 }
 
+- (NSString *)debugDescription {
+    return [NSString stringWithFormat:@"%@", self.decodedArray];
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@", self.decodedArray];
+}
 
 @end
