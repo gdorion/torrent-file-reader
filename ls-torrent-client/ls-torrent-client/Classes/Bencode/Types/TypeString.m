@@ -40,7 +40,7 @@
             self.startIndex++;
             self.decodedValue = [string substringWithRange:NSMakeRange(self.startIndex, self.length)];
             
-            // Rmeove from remaining content.
+            // Remove from remaining content.
             self.remainingContent = [string substringFromIndex:[self decodedValueSize]];
         }
     }
@@ -48,6 +48,7 @@
     return self;
 }
 
+// Finds characters in 0-9
 - (BOOL)stringIsNumeric:(NSString*)string {
     NSCharacterSet* alphaSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSRange range = [string rangeOfCharacterFromSet:alphaSet];

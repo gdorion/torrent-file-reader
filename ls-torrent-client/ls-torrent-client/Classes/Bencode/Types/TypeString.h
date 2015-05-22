@@ -13,7 +13,7 @@
 // Decoded string size - > "8:announce", represents 8.
 @property (nonatomic) NSInteger length;
 
-// Value after decoding. Decoding should be at init time.
+// Value after decoding. Decoding should be done at init time.
 @property (nonatomic) NSString * decodedValue;
 
 @end

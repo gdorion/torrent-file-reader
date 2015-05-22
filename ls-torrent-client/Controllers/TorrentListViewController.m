@@ -65,7 +65,12 @@
         [self.creationDateLabel setStringValue:[self formattedDateString]];
         
         // Tracker (announce)
-        [self.announceClientLabel setStringValue:[[TorrentModel instance] torrent].announce];
+        NSString * announce = [[TorrentModel instance] torrent].announce;
+        if (announce == nil && [announce isKindOfClass:[NSString class]] == NO) {
+            announce = @"Unknown";
+        }
+        
+        [self.announceClientLabel setStringValue:announce];
         
         // Created by
         NSString * client = [[TorrentModel instance] torrent].creationClient;

@@ -22,7 +22,9 @@
 
                 if (i > 0) { // Discarding empty integer.
                     NSString * decodedString = [string substringWithRange:NSMakeRange(1, i)];
-                    self.decodedValue = [decodedString integerValue];
+                    
+                    NSDecimalNumber * result = [NSDecimalNumber decimalNumberWithString:decodedString];
+                    self.decodedValue = [result integerValue];
                     
                     self.remainingContent = [string substringFromIndex:[self decodedValueSize]];
                 }
