@@ -1,4 +1,4 @@
-//
+z//
 //  TypeDictionary.m
 //  ls-torrent-client
 //
@@ -33,12 +33,12 @@
             
             // Key
             TypeString * newKey = [[TypeString alloc] initWithString:self.rawValue];
-            self.rawValue = [newKey removeDecodedValuefromString:self.rawValue];
+            self.rawValue = newKey.rawValue;
             
             // Value
             NSString * firstChar = [self.rawValue substringWithRange:NSMakeRange(0, 1)];
             Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.rawValue];
-            self.rawValue = [newValue removeDecodedValuefromString:self.rawValue];
+            self.rawValue = newValue.rawValue;
             
             // Save
             if (newKey.decodedValue) {
@@ -69,14 +69,6 @@
     }
     
     return totalLength;
-}
-
-- (NSString *)debugDescription {
-    return [NSString stringWithFormat:@"%@", self.decodedDictionary];
-}
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"%@", self.decodedDictionary];
 }
 
 @end

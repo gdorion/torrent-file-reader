@@ -24,6 +24,8 @@
                     // Discarding empty integer.
                     NSString * decodedString = [string substringWithRange:NSMakeRange(1, i)];
                     self.decodedValue = [decodedString integerValue];
+                    
+                    self.rawValue = [string substringFromIndex:[self decodedValueSize]];
                 }
                 
                 break;
@@ -41,10 +43,6 @@
 
 - (NSString*)stringValue {
     return [NSString stringWithFormat:@"%ld", self.decodedValue];
-}
-
-- (NSString *)debugDescription {
-    return [self stringValue];
 }
 
 @end

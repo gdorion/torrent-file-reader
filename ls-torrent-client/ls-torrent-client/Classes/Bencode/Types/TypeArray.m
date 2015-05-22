@@ -35,7 +35,7 @@
             // Value
             NSString * firstChar = [self.rawValue substringWithRange:NSMakeRange(0, 1)];
             Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.rawValue];
-            self.rawValue = [newValue removeDecodedValuefromString:self.rawValue];
+            self.rawValue = newValue.rawValue;
 
             [self.decodedArray addObject:newValue];
         }
@@ -56,14 +56,6 @@
     
     return totalLength;
 
-}
-
-- (NSString *)debugDescription {
-    return [NSString stringWithFormat:@"%@", self.decodedArray];
-}
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"%@", self.decodedArray];
 }
 
 @end

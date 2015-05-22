@@ -35,10 +35,13 @@
         
         // Parsing content value
         if (self.length > 0) {
-            
+
             // Skip ":" delimiter
             self.startIndex++;
             self.decodedValue = [string substringWithRange:NSMakeRange(self.startIndex, self.length)];
+            
+            // Rmeove from remaining content.
+            self.rawValue = [string substringFromIndex:[self decodedValueSize]];
         }
     }
     
@@ -54,10 +57,6 @@
 - (NSInteger)decodedValueSize {
     // Length of size + ":" + value size.
     return self.startIndex + self.length;
-}
-
-- (NSString *)debugDescription {
-    return self.decodedValue;
 }
 
 - (NSString*)stringValue {
