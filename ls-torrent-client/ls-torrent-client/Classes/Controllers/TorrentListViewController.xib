@@ -84,7 +84,7 @@
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZaT-iF-o7f">
                                                         <rect key="frame" x="7" y="31" width="47" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Length" id="Mf9-E4-Vrb">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Size" id="Mf9-E4-Vrb">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -154,7 +154,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ak-u0-ZKh">
-                    <rect key="frame" x="405" y="425" width="102" height="17"/>
+                    <rect key="frame" x="345" y="425" width="102" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Creation Client : " id="rqj-iv-8iX">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" red="0.48953297651933703" green="0.48953297651933703" blue="0.48953297651933703" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -170,7 +170,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMs-V1-blf">
-                    <rect key="frame" x="511" y="426" width="219" height="16"/>
+                    <rect key="frame" x="451" y="426" width="279" height="16"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="DBu-1m-yfi">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

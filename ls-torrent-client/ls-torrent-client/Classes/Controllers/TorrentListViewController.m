@@ -90,7 +90,6 @@
     openDialog.allowedFileTypes = @[@"torrent"];
 
     if ([openDialog runModal] == NSModalResponseOK) {
-        NSLog(@"%@", [openDialog.URLs firstObject]);
         return [openDialog.URLs firstObject];
     }
     
