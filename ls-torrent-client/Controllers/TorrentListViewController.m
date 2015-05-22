@@ -86,4 +86,9 @@
     return nil;
 }
 
+- (void)reset {
+    [self.creationDateLabel setStringValue:@"Unknown"];
+    [self.creationClientLabel setStringValue:@"Unknown"];
+}
+
 @end
