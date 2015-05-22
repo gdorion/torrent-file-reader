@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+
+// Each type is contains data extract from the original torrent file.
+// Each sub part of the file is represent by a subclass of Type.
 @interface Type : NSObject
 
 // Contains the remains of the un processed content in the .torrent file.

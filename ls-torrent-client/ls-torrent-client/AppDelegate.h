@@ -8,11 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class TorrentListViewController;
+@class TorrentViewController;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (nonatomic) IBOutlet TorrentListViewController *torrentListViewController;
+@property (nonatomic) IBOutlet TorrentViewController *torrentViewController;
 
 @end
 

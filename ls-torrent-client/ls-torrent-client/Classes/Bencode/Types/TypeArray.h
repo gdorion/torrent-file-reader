@@ -10,6 +10,7 @@
 
 @interface TypeArray : Type
 
+// Contains any other type of Type objects.
 @property (nonatomic) NSMutableArray * decodedArray;
 
 @end

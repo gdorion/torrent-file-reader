@@ -1,5 +1,5 @@
 //
-//  TorrentListViewController.h
+//  TorrentViewController.h
 //  ls-torrent-client
 //
 //  Created by Guillaume Dorion-Racine on 2015-05-20.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TorrentListViewController : NSViewController
+@interface TorrentViewController : NSViewController
 
 - (void)addTorrent;
 

@@ -13,7 +13,7 @@
 @interface TypeHelper : NSObject
 
 // Methods : Find a value from given key for (recursively) :
-// Dictionary params takes :
+// the dictionary params takes :
 //   - TypeArray
 //   - TypeDictionary
 //   - NSDictionary

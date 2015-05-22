@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="TorrentListViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="TorrentViewController">
             <connections>
                 <outlet property="announceClientLabel" destination="uxQ-Uz-pcn" id="clD-zb-hyO"/>
                 <outlet property="creationClientLabel" destination="FMs-V1-blf" id="QDb-1t-f48"/>
@@ -46,7 +46,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView id="wwd-WX-grF" customClass="TorrentCell">
+                                            <tableCellView id="wwd-WX-grF" customClass="TorrentFileCell">
                                                 <rect key="frame" x="1" y="1" width="743" height="65"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>

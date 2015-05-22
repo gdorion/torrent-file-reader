@@ -10,7 +10,7 @@
 
 @class File;
 
-@interface TorrentCell : NSTableCellView
+@interface TorrentFileCell : NSTableCellView
 
 - (void)updateWithFile:(File *)file;
 

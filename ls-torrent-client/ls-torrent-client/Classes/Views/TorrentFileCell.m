@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Guillaume Dorion-Racine. All rights reserved.
 //
 
-#import "TorrentCell.h"
+#import "TorrentFileCell.h"
 
 // Models
 #import "Torrent.h"
 #import "File.h"
 
-@interface TorrentCell()
+@interface TorrentFileCell()
 
 @property (weak) IBOutlet NSTextField * nameTextField;
 @property (weak) IBOutlet NSTextField * lengthTextField;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation TorrentCell
+@implementation TorrentFileCell
 
 - (void)updateWithFile:(File *)file {
     NSString * unknownStringValue = @"Unknown";

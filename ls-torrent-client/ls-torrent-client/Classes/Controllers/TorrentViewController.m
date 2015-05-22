@@ -1,22 +1,22 @@
 //
-//  TorrentListViewController.m
+//  TorrentViewController.m
 //  ls-torrent-client
 //
 //  Created by Guillaume Dorion-Racine on 2015-05-20.
 //  Copyright (c) 2015 Guillaume Dorion-Racine. All rights reserved.
 //
 
-#import "TorrentListViewController.h"
+#import "TorrentViewController.h"
 
 // Views
-#import "TorrentCell.h"
+#import "TorrentFileCell.h"
 
 // Model
 #import "TorrentModel.h"
 #import "Torrent.h"
 #import "File.h"
 
-@interface TorrentListViewController () <NSTableViewDelegate, NSTableViewDataSource>
+@interface TorrentViewController () <NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic) IBOutlet NSTableView * tableView;
 @property (nonatomic) IBOutlet NSTextField * creationDateLabel;
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation TorrentListViewController
+@implementation TorrentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +39,7 @@
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    TorrentCell *cell = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    TorrentFileCell *cell = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
     File * file = [[[TorrentModel instance] torrent].fileList objectAtIndex:row];
     [cell updateWithFile:file];
     

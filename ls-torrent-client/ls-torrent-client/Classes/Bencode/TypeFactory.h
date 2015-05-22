@@ -12,6 +12,8 @@
 
 @interface TypeFactory : NSObject
 
+// Build a type object from a torrent file string.
+// Parse the type : int, string, list or dictionary and build the object with the string content.
 + (Type*)typeFromTypeIdentifier:(NSString*)identifier andString:(NSString*)string;
 
 @end

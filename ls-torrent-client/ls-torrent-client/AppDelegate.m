@@ -12,7 +12,7 @@
 #import "TorrentModel.h"
 
 // Controller
-#import "TorrentListViewController.h"
+#import "TorrentViewController.h"
 
 @interface AppDelegate ()
 
@@ -31,15 +31,15 @@
 }
 
 - (void)loadView {
-    self.torrentListViewController = [[TorrentListViewController alloc] initWithNibName:@"TorrentListViewController" bundle:nil];
-    [self.window.contentView addSubview:self.torrentListViewController.view];
-    self.torrentListViewController.view.frame = ((NSView*)self.window.contentView).bounds;
+    self.torrentViewController = [[TorrentViewController alloc] initWithNibName:NSStringFromClass([TorrentViewController class]) bundle:nil];
+    [self.window.contentView addSubview:self.torrentViewController.view];
+    self.torrentViewController.view.frame = ((NSView*)self.window.contentView).bounds;
 }
 
 #pragma mark - NSToolbarItem Actions
 
 - (IBAction)addTorrent:(id)sender {
-    [self.torrentListViewController addTorrent];
+    [self.torrentViewController addTorrent];
 }
 
 @end

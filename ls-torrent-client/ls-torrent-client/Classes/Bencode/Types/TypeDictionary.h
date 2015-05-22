@@ -10,6 +10,7 @@
 
 @interface TypeDictionary : Type
 
+// Contains any other type of Type objects.
 @property (nonatomic) NSMutableDictionary * decodedDictionary;
 
 @end
