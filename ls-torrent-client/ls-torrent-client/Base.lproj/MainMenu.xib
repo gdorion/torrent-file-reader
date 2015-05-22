@@ -669,10 +669,10 @@
         <window title="Lightspeed Torrent" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
+            <rect key="contentRect" x="335" y="390" width="715" height="373"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="715" height="373"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="07150D33-62A8-4BE5-A586-D2FA273801BB" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="BOY-oX-Z4x">
@@ -707,6 +707,7 @@
                     <outlet property="delegate" destination="-2" id="wvW-xk-Q10"/>
                 </connections>
             </toolbar>
+            <point key="canvasLocation" x="513.5" y="296.5"/>
         </window>
     </objects>
     <resources>
