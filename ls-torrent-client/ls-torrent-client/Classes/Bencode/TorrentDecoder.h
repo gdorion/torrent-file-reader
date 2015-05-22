@@ -10,6 +10,11 @@
 
 @class Torrent;
 
+// The decoder class use a tree structure composed of string, int, array and dictionary
+// to rebuild the bencode content of a torrent file.
+// The parsing algorithm was based on the specification located here :
+// Ref.: http://www.bittorrent.org/beps/bep_0003.html
+
 @interface TorrentDecoder : NSObject
 
 - (Torrent*)decodeTorrent:(NSString*)filePath;
