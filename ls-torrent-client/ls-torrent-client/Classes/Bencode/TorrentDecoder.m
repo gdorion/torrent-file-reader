@@ -80,7 +80,7 @@ NSInteger  kTorrentSHA1Lenght = 20;
 
 #pragma mark - Torrent files
 
-// File list -> NSDictionary
+// NSDictionary -> File list
 - (NSArray*)torrentFileListFrom:(NSDictionary*)dictionary {
     NSMutableArray * fileList = [NSMutableArray new];
     
@@ -118,7 +118,11 @@ NSInteger  kTorrentSHA1Lenght = 20;
 - (File*)fileFromDictionary:(NSDictionary*)dictionary atIndex:(NSInteger)index andPieces:(NSString*)pieces {
     NSString * path = [TypeHelper stringForKey:kTorrentPathDictKey inDictionaryTree:dictionary].decodedValue;
     NSInteger length = [TypeHelper intForKey:kTorrentLengthDictKey inDictionaryTree:dictionary].decodedValue;
+    
+    // Extract SHA1 (multiple of 20 bytes)
     NSString * hash = [pieces substringWithRange:NSMakeRange(index * kTorrentSHA1Lenght, kTorrentSHA1Lenght)];
+    
+    // Checksum is optional in the bittorrent specification.
     NSString * checksum = [TypeHelper stringForKey:kTorrentFileMD5ChecksumDictKey inDictionaryTree:dictionary].decodedValue;
     
     return [[File alloc] initWithName:path andLength:length andHash:hash andChecksum:checksum];

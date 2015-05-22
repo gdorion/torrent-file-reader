@@ -1,0 +1,14 @@
+Torrent Reader
+------------------
+Author : Guillaume Dorion-Racine
+Email  : gdorion@gmail.com
+
+Description : 
+This app load a .torrent file and presents it's metadata information to the user.
+Press the '+' button to open and load the a file.
+
+The files contained in the torrent will be shown in the table view.
+
+The torrent files that are under a folder will be presented like this : 
+SampleFolder/myfile.mp4
+
