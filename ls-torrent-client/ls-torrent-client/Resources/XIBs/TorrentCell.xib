@@ -61,9 +61,9 @@
                 </textField>
             </subviews>
             <connections>
-                <outlet property="checksumTextField" destination="wj5-AW-V8V" id="zYI-AL-eaZ"/>
                 <outlet property="lengthTextField" destination="d3t-Hp-pL1" id="dMr-yP-DN8"/>
                 <outlet property="nameTextField" destination="VDs-bA-teS" id="G8q-2x-Pq9"/>
+                <outlet property="sha1HashTextField" destination="wj5-AW-V8V" id="ciD-sR-Mbe"/>
             </connections>
             <point key="canvasLocation" x="309.5" y="366.5"/>
         </tableCellView>

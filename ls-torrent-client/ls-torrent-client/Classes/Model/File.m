@@ -10,12 +10,13 @@
 
 @implementation File
 
-- (instancetype)initWithName:(NSString*)name andLength:(NSInteger)length andChecksum:(NSString*)checksum {
+- (instancetype)initWithName:(NSString*)name andLength:(NSInteger)length andHash:(NSString*)hash andChecksum:(NSString*)checksum {
     self = [super init];
     
     if (self){
         self.name = name;
         self.length = length;
+        self.sha1Hash = hash;
         self.checksum = checksum;
     }
     

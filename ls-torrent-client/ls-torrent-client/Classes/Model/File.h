@@ -12,8 +12,9 @@
 
 @property (nonatomic) NSString * name;
 @property (nonatomic) NSUInteger length; // Length is in byte.
-@property (nonatomic) NSString * checksum; // 20 characters depending on the index of the file.
+@property (nonatomic) NSString * sha1Hash; // 20 characters depending on the index of the file.
+@property (nonatomic) NSString * checksum;
 
-- (instancetype)initWithName:(NSString*)name andLength:(NSInteger)length andChecksum:(NSString*)checksum;
+- (instancetype)initWithName:(NSString*)name andLength:(NSInteger)length andHash:(NSString*)hash andChecksum:(NSString*)checksum;
 
 @end

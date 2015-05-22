@@ -16,6 +16,7 @@
 
 @property (weak) IBOutlet NSTextField * nameTextField;
 @property (weak) IBOutlet NSTextField * lengthTextField;
+@property (weak) IBOutlet NSTextField * sha1HashTextField;
 @property (weak) IBOutlet NSTextField * checksumTextField;
 
 @end
@@ -33,8 +34,8 @@
     [self.lengthTextField setStringValue:[NSString stringWithFormat:@"%@ MB", length]];
     
     // Displaying checksum in raw string.
-    NSString * checksum = file.checksum  ? [self readableChecksumWithString:file.checksum] : unknownStringValue;
-    [self.checksumTextField setStringValue:checksum];
+    NSString * hash = file.sha1Hash  ? [self readableChecksumWithString:file.sha1Hash] : unknownStringValue;
+    [self.sha1HashTextField setStringValue:hash];
 }
 
 - (NSString *)readableChecksumWithString:(NSString*)checksum {

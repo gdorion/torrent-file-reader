@@ -29,31 +29,24 @@ NSString * kTorrentCreationClientDictKey = @"created by";
 NSString * kTorrentCreationDateDictKey = @"creation date";
 NSString * kTorrentFilesDictKey = @"files";
 NSString * kTorrentAnnounceDictKey = @"announce";
+NSString * kTorrentFileMD5ChecksumDictKey = @"md5sum";
 NSInteger  kTorrentSHA1Lenght = 20;
-
-@interface TorrentDecoder()
-
-@property (nonatomic) NSMutableDictionary * torrentInformations;
-
-@end
 
 @implementation TorrentDecoder
 
 - (Torrent*)decodeTorrent:(NSString*)filePath {
-    self.torrentInformations = [NSMutableDictionary new];
-    
     // Retreive torrent informations.
     NSError * error = [NSError new];
     NSString * fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSASCIIStringEncoding error:&error];
-    [self decodedContentFromString:fileContent];
+    NSMutableDictionary * dict = [self decodedContentFromString:fileContent];
     
-    return [self torrentFromDictionary:self.torrentInformations];
+    return [self torrentFromDictionary:dict];
 }
 
 
 #pragma mark - String -> Dictionary
 
-- (void)decodedContentFromString:(NSString*)string {
+- (NSMutableDictionary *)decodedContentFromString:(NSString*)string {
     NSString * content = [string copy];
     NSString * firstChar = [content substringWithRange:NSMakeRange(0, 1)];
     
@@ -63,12 +56,15 @@ NSInteger  kTorrentSHA1Lenght = 20;
     if ([firstChar isEqualToString:@"d"]) {
         TypeDictionary * dictionary = [[TypeDictionary alloc] initWithString:content];
         newDecodedValue = dictionary;
-        self.torrentInformations = dictionary.decodedDictionary;
+        return dictionary.decodedDictionary;
     }
+    
+    return nil;
 }
 
 #pragma mark - Dictionary -> Torrent
 
+// NSDictonary -> Torrent
 - (Torrent*)torrentFromDictionary:(NSDictionary*)dictionary {
     // Torrent files.
     NSArray * fileList = [self torrentFileListFrom:dictionary];
@@ -84,48 +80,48 @@ NSInteger  kTorrentSHA1Lenght = 20;
 
 #pragma mark - Torrent files
 
+// File list -> NSDictionary
 - (NSArray*)torrentFileListFrom:(NSDictionary*)dictionary {
     NSMutableArray * fileList = [NSMutableArray new];
     
     // Many files (nested under 'files')
     Type * filesType = [TypeHelper typeForKey:kTorrentFilesDictKey inDictionaryTree:dictionary];
     if (filesType) {
+        
         if ([filesType isKindOfClass:[TypeArray class]]) {
             TypeArray * filesTypeArray = (TypeArray*)filesType;
-            
-            // Extracting checksum
             NSString * pieces = [TypeHelper stringForKey:kTorrentPiecesDictKey inDictionaryTree:dictionary].decodedValue;
             
             for (int i=0; i < filesTypeArray.decodedArray.count; i++) {
                 TypeDictionary * dict = [filesTypeArray.decodedArray objectAtIndex:i];
-                
-                NSString * path = [TypeHelper stringForKey:kTorrentPathDictKey inDictionaryTree:dict.decodedDictionary].decodedValue;
-                NSInteger length = [TypeHelper intForKey:kTorrentLengthDictKey inDictionaryTree:dict.decodedDictionary].decodedValue;
-                NSString * checksum = [pieces substringWithRange:NSMakeRange(i * kTorrentSHA1Lenght, kTorrentSHA1Lenght)];
-                
-                File * newFile = [[File alloc] initWithName:path andLength:length andChecksum:checksum];
-                [fileList addObject:newFile];
+                [fileList addObject:[self fileFromDictionary:dict.decodedDictionary atIndex:i andPieces:pieces]];
             }
         }
     }
     
     // Single file (trying : 'name' or 'path')
     else {
+        NSString * pieces = [TypeHelper stringForKey:kTorrentPiecesDictKey inDictionaryTree:dictionary].decodedValue;
         NSString * path = [TypeHelper stringForKey:kTorrentPathDictKey inDictionaryTree:dictionary].decodedValue;
+        
         if (path == nil) {
-            // Try name value
             path = [TypeHelper stringForKey:kTorrentNameDictKey inDictionaryTree:dictionary].decodedValue;
         }
         
-        NSInteger length = [TypeHelper intForKey:kTorrentLengthDictKey inDictionaryTree:dictionary].decodedValue;
-        NSString * pieces = [TypeHelper stringForKey:kTorrentPiecesDictKey inDictionaryTree:dictionary].decodedValue;
-        NSString * checksum = [pieces substringWithRange:NSMakeRange(0, kTorrentSHA1Lenght)];
-        
-        File * newFile = [[File alloc] initWithName:path andLength:length andChecksum:checksum];
-        [fileList addObject:newFile];
+        [fileList addObject:[self fileFromDictionary:dictionary atIndex:0 andPieces:pieces]];
     }
     
     return fileList;
+}
+
+// NSDictionary -> File
+- (File*)fileFromDictionary:(NSDictionary*)dictionary atIndex:(NSInteger)index andPieces:(NSString*)pieces {
+    NSString * path = [TypeHelper stringForKey:kTorrentPathDictKey inDictionaryTree:dictionary].decodedValue;
+    NSInteger length = [TypeHelper intForKey:kTorrentLengthDictKey inDictionaryTree:dictionary].decodedValue;
+    NSString * hash = [pieces substringWithRange:NSMakeRange(index * kTorrentSHA1Lenght, kTorrentSHA1Lenght)];
+    NSString * checksum = [TypeHelper stringForKey:kTorrentFileMD5ChecksumDictKey inDictionaryTree:dictionary].decodedValue;
+    
+    return [[File alloc] initWithName:path andLength:length andHash:hash andChecksum:checksum];
 }
 
 @end
