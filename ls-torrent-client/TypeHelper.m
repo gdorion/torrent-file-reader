@@ -16,6 +16,7 @@
 
 @implementation TypeHelper
 
+// Recursive search for string types mapped to specified keys
 + (TypeString*)stringForKey:(NSString*)key inDictionaryTree:(id)dictionary {
     Type * resultValue = [TypeHelper typeForKey:key inDictionaryTree:dictionary];
     
@@ -54,6 +55,7 @@
     
 }
 
+// Recursive search for integer types mapped to specified keys
 + (TypeInteger*)intForKey:(NSString*)key inDictionaryTree:(id)dictionary {
     Type * resultValue = [TypeHelper typeForKey:key inDictionaryTree:dictionary];
     
@@ -77,6 +79,7 @@
     return (TypeInteger*)resultValue;
 }
 
+// Recursively go down the type object structure.
 + (Type*)typeForKey:(NSString*)key inDictionaryTree:(id)dictionary {
     Type * resultValue = nil;
     
