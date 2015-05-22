@@ -16,7 +16,6 @@
 - (instancetype)initWithString:(NSString*)string;
 
 - (NSInteger)decodedValueSize;
-
 - (NSString*)stringValue;
 
 @end

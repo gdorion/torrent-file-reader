@@ -47,15 +47,4 @@
     return self;
 }
 
-- (NSInteger)decodedValueSize {
-    NSInteger totalLength = 2; // 'l' + 'e".
-    
-    for (Type * type in self.decodedArray) {
-        totalLength += [type decodedValueSize];
-    }
-    
-    return totalLength;
-
-}
-
 @end

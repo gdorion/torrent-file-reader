@@ -17,6 +17,7 @@
 @implementation TypeFactory
 
 + (Type*)typeFromTypeIdentifier:(NSString*)identifier andString:(NSString*)string {
+   
     if ([identifier isEqualToString:@"d"]) {
         return [[TypeDictionary alloc] initWithString:string];
     }

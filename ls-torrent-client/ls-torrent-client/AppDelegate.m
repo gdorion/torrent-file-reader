@@ -19,7 +19,6 @@
 @property (weak) IBOutlet NSWindow *window;
 
 @property (nonatomic) IBOutlet NSButton * addTorrentButton;
-@property (nonatomic) IBOutlet NSButton * removeTorrentButton;
 
 @end
 

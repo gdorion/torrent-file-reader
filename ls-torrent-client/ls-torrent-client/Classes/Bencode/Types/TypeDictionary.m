@@ -27,6 +27,7 @@
         
         while (self.rawValue.length > 0) {
             
+            // End delimiter reached.
             if ([[self.rawValue substringToIndex:1] isEqualToString:@"e"]) {
                 break;
             }
@@ -49,26 +50,11 @@
             }
         }
         
-        // removing 'e'
+        // removing 'e' end delimiter
         self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
     }
     
     return self;
-}
-
-- (NSInteger)decodedValueSize {
-    NSInteger totalLength = 2; // "d" + values.length + "e"
-    
-    for (NSString * key in [self.decodedDictionary allKeys]) {
-        totalLength += key.length + 1; // ":" and Key is always a TypeString
-        
-        Type * type = [self.decodedDictionary objectForKey:key];
-        if (type) {
-            totalLength += [type decodedValueSize];
-        }
-    }
-    
-    return totalLength;
 }
 
 @end

@@ -49,6 +49,8 @@
 #pragma mark - Torrent Actions
 
 - (void)addTorrent {
+    [self reset];
+    
     NSString * torrentFilePath = [self filePathFromOpenDialog];
     if (torrentFilePath) {
         [[TorrentModel instance] addTorrent:torrentFilePath];
@@ -73,7 +75,7 @@
     }
 }
 
-#pragma mark - Dialogs
+#pragma mark - Open Dialogs
 
 - (NSString*)filePathFromOpenDialog {
     NSOpenPanel* openDialog = [NSOpenPanel openPanel];
@@ -93,6 +95,7 @@
 - (void)reset {
     [self.creationDateLabel setStringValue:@"Unknown"];
     [self.creationClientLabel setStringValue:@"Unknown"];
+    [self.announceClientLabel setStringValue:@"Unknown"];
 }
 
 @end
