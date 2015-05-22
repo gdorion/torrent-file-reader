@@ -69,9 +69,12 @@
     for (NSString * dictKey in [dictionary allKeys]) {
         Type * dictValue = [dictionary objectForKey:dictKey];
         
+        // Found the value !
         if ([dictKey isEqualToString:key]) {
             return dictValue;
         }
+        
+        // Nested dictionary
         else if ([dictValue isKindOfClass:[TypeDictionary class]]) {
             TypeDictionary * nestedDictionary = (TypeDictionary*)dictValue;
             resultValue = [TypeHelper typeForKey:key inDictionaryTree:nestedDictionary.decodedDictionary];
@@ -80,6 +83,8 @@
                 return resultValue;
             }
         }
+        
+        // Nested array
         else if ([dictValue isKindOfClass:[TypeArray class]]) {
             TypeArray * nestedArray = (TypeArray*)dictValue;
             

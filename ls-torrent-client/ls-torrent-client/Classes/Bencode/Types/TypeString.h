@@ -10,6 +10,7 @@
 
 @interface TypeString : Type
 
+// Decoded string size - > "8:announce", represents 8.
 @property (nonatomic) NSInteger length;
 
 // Value after decoding. Decoding should be at init time.

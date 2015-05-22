@@ -24,24 +24,24 @@
         self.decodedArray = [NSMutableArray new];
     
         // Removing the 'l' delimiter for dictionary.
-        self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
+        self.remainingContent = [self.remainingContent substringWithRange:NSMakeRange(1, self.remainingContent.length - 1)];
         
         // Array Decoding loop.
-        while (self.rawValue.length > 0) {
-            if ([[self.rawValue substringToIndex:1] isEqualToString:@"e"]) {
+        while (self.remainingContent.length > 0) {
+            if ([[self.remainingContent substringToIndex:1] isEqualToString:@"e"]) {
                 break;
             }
             
             // Value
-            NSString * firstChar = [self.rawValue substringWithRange:NSMakeRange(0, 1)];
-            Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.rawValue];
-            self.rawValue = newValue.rawValue;
+            NSString * firstChar = [self.remainingContent substringWithRange:NSMakeRange(0, 1)];
+            Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.remainingContent];
+            self.remainingContent = newValue.remainingContent;
 
             [self.decodedArray addObject:newValue];
         }
         
         // Remove 'e' end delimiter
-        self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
+        self.remainingContent = [self.remainingContent substringWithRange:NSMakeRange(1, self.remainingContent.length - 1)];
     }
     
     return self;

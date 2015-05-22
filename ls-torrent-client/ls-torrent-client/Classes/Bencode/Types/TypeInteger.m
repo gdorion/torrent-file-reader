@@ -20,12 +20,11 @@
             if ([[integerString substringWithRange:NSMakeRange(i, 1)] isEqualToString:@"e"]) {
                 // End delimiter was hit. Desired content found.
 
-                if (i > 0) {
-                    // Discarding empty integer.
+                if (i > 0) { // Discarding empty integer.
                     NSString * decodedString = [string substringWithRange:NSMakeRange(1, i)];
                     self.decodedValue = [decodedString integerValue];
                     
-                    self.rawValue = [string substringFromIndex:[self decodedValueSize]];
+                    self.remainingContent = [string substringFromIndex:[self decodedValueSize]];
                 }
                 
                 break;

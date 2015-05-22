@@ -41,7 +41,7 @@
             self.decodedValue = [string substringWithRange:NSMakeRange(self.startIndex, self.length)];
             
             // Rmeove from remaining content.
-            self.rawValue = [string substringFromIndex:[self decodedValueSize]];
+            self.remainingContent = [string substringFromIndex:[self decodedValueSize]];
         }
     }
     

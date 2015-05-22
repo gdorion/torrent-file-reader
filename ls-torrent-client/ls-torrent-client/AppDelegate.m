@@ -25,7 +25,6 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Prepare models.
     [TorrentModel instance];
     
     [self loadView];

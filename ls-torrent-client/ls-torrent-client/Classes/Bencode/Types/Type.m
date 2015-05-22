@@ -10,11 +10,11 @@
 
 @implementation Type
 
-- (instancetype)initWithString:(NSString*)string {
+- (instancetype)initWithString:(NSString*)remainingContent {
     self = [super init];
     
     if (self) {
-        self.rawValue = string;
+        self.remainingContent = remainingContent;
     }
     
     return self;

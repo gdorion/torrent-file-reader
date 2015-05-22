@@ -23,23 +23,23 @@
         self.decodedDictionary = [NSMutableDictionary new];
         
         // Removing 'd'
-        self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
+        self.remainingContent = [self.remainingContent substringWithRange:NSMakeRange(1, self.remainingContent.length - 1)];
         
-        while (self.rawValue.length > 0) {
+        while (self.remainingContent.length > 0) {
             
             // End delimiter reached.
-            if ([[self.rawValue substringToIndex:1] isEqualToString:@"e"]) {
+            if ([[self.remainingContent substringToIndex:1] isEqualToString:@"e"]) {
                 break;
             }
             
             // Key
-            TypeString * newKey = [[TypeString alloc] initWithString:self.rawValue];
-            self.rawValue = newKey.rawValue;
+            TypeString * newKey = [[TypeString alloc] initWithString:self.remainingContent];
+            self.remainingContent = newKey.remainingContent;
             
             // Value
-            NSString * firstChar = [self.rawValue substringWithRange:NSMakeRange(0, 1)];
-            Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.rawValue];
-            self.rawValue = newValue.rawValue;
+            NSString * firstChar = [self.remainingContent substringWithRange:NSMakeRange(0, 1)];
+            Type * newValue = [TypeFactory typeFromTypeIdentifier:firstChar andString:self.remainingContent];
+            self.remainingContent = newValue.remainingContent;
             
             // Save
             if (newKey.decodedValue) {
@@ -51,7 +51,7 @@
         }
         
         // removing 'e' end delimiter
-        self.rawValue = [self.rawValue substringWithRange:NSMakeRange(1, self.rawValue.length - 1)];
+        self.remainingContent = [self.remainingContent substringWithRange:NSMakeRange(1, self.remainingContent.length - 1)];
     }
     
     return self;

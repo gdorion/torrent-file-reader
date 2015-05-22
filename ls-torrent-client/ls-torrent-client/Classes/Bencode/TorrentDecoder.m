@@ -20,6 +20,7 @@
 #import "Torrent.h"
 #import "File.h"
 
+// Torrent metadata information keys
 NSString * kTorrentPathDictKey = @"path";
 NSString * kTorrentNameDictKey = @"name";
 NSString * kTorrentPiecesDictKey = @"pieces";
@@ -28,8 +29,7 @@ NSString * kTorrentCreationClientDictKey = @"created by";
 NSString * kTorrentCreationDateDictKey = @"creation date";
 NSString * kTorrentFilesDictKey = @"files";
 NSString * kTorrentAnnounceDictKey = @"announce";
-
-NSInteger kTorrentSHA1Lenght = 20;
+NSInteger  kTorrentSHA1Lenght = 20;
 
 @interface TorrentDecoder()
 
@@ -70,11 +70,10 @@ NSInteger kTorrentSHA1Lenght = 20;
 #pragma mark - Dictionary -> Torrent
 
 - (Torrent*)torrentFromDictionary:(NSDictionary*)dictionary {
-    
     // Torrent files.
     NSArray * fileList = [self torrentFileListFrom:dictionary];
     
-    // Other informations.
+    // Other information.
     NSInteger creationDate = [TypeHelper intForKey:kTorrentCreationDateDictKey inDictionaryTree:dictionary].decodedValue;
     NSString * creationClient = [TypeHelper stringForKey:kTorrentCreationClientDictKey inDictionaryTree:dictionary].decodedValue;
     NSString * announce = [TypeHelper stringForKey:kTorrentAnnounceDictKey inDictionaryTree:dictionary].decodedValue;

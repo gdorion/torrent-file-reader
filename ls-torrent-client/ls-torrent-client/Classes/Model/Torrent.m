@@ -24,14 +24,4 @@
     return self;
 }
 
-- (NSArray*)fileNameList {
-    NSMutableArray * names = [NSMutableArray new];
-    
-    for (File * file in self.fileList) {
-        [names addObject:file.name];
-    }
-    
-    return names;
-}
-
 @end

@@ -10,12 +10,15 @@
 
 @interface Type : NSObject
 
-// Value before decoding.
-@property (nonatomic) NSString * rawValue;
+// Contains the remains of the un processed content in the .torrent file.
+@property (nonatomic) NSString * remainingContent;
 
-- (instancetype)initWithString:(NSString*)string;
+- (instancetype)initWithString:(NSString*)remainingContent;
 
+// Represents the size of the processed data for an iteration.
 - (NSInteger)decodedValueSize;
+
+// String representation
 - (NSString*)stringValue;
 
 @end

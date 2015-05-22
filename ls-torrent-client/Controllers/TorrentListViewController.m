@@ -22,6 +22,7 @@
 @property (nonatomic) IBOutlet NSTextField * creationDateLabel;
 @property (nonatomic) IBOutlet NSTextField * creationClientLabel;
 @property (nonatomic) IBOutlet NSTextField * announceClientLabel;
+@property (nonatomic) IBOutlet NSTextField * fileNameClientLabel;
 
 @end
 
@@ -29,7 +30,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView reloadData];
 }
 
 #pragma mark - NSTableViewDatasource
@@ -55,14 +55,14 @@
     if (torrentFilePath) {
         [[TorrentModel instance] addTorrent:torrentFilePath];
         
+        // File name
+        [self.fileNameClientLabel setStringValue:torrentFilePath];
+        
         // File list
         [self.tableView reloadData];
         
         // Date
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-        NSString *stringDate = [dateFormatter stringFromDate:[[TorrentModel instance] torrent].creationDate];
-        [self.creationDateLabel setStringValue:stringDate];
+        [self.creationDateLabel setStringValue:[self formattedDateString]];
         
         // Tracker (announce)
         [self.announceClientLabel setStringValue:[[TorrentModel instance] torrent].announce];
@@ -96,6 +96,14 @@
     [self.creationDateLabel setStringValue:@"Unknown"];
     [self.creationClientLabel setStringValue:@"Unknown"];
     [self.announceClientLabel setStringValue:@"Unknown"];
+}
+
+#pragma mark - Date helper
+
+- (NSString*)formattedDateString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    return [dateFormatter stringFromDate:[[TorrentModel instance] torrent].creationDate];
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @interface TypeInteger : Type
 
-// Value after decoding. Decoding should be at init time.
+// Value after decoding. Decoding should be at init time -> "i42e" will be 42.
 @property (nonatomic) NSInteger decodedValue;
 
 

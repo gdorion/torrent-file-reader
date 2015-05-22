@@ -20,6 +20,4 @@
        andCreationDate:(NSInteger)creationDate
            andAnnounce:(NSString*)announce;
 
-- (NSArray*)fileNameList;
-
 @end
