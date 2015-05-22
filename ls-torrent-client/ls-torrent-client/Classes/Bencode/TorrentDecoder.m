@@ -21,6 +21,7 @@
 #import "File.h"
 
 // Torrent metadata information keys
+// Ref.: https://wiki.theory.org/BitTorrentSpecification
 NSString * kTorrentPathDictKey = @"path";
 NSString * kTorrentNameDictKey = @"name";
 NSString * kTorrentPiecesDictKey = @"pieces";
@@ -46,6 +47,7 @@ NSInteger  kTorrentSHA1Lenght = 20;
 
 #pragma mark - String -> Dictionary
 
+// NSString -> NSDictionary
 - (NSMutableDictionary *)decodedContentFromString:(NSString*)string {
     NSString * content = [string copy];
     NSString * firstChar = [content substringWithRange:NSMakeRange(0, 1)];
@@ -62,7 +64,7 @@ NSInteger  kTorrentSHA1Lenght = 20;
     return nil;
 }
 
-#pragma mark - Dictionary -> Torrent
+#pragma mark - NSDictonary -> Torrent
 
 // NSDictonary -> Torrent
 - (Torrent*)torrentFromDictionary:(NSDictionary*)dictionary {
@@ -78,7 +80,7 @@ NSInteger  kTorrentSHA1Lenght = 20;
     return newTorrent;
 }
 
-#pragma mark - Torrent files
+#pragma mark - NSDictionary -> File list
 
 // NSDictionary -> File list
 - (NSArray*)torrentFileListFrom:(NSDictionary*)dictionary {
@@ -113,6 +115,8 @@ NSInteger  kTorrentSHA1Lenght = 20;
     
     return fileList;
 }
+
+#pragma mark - NSDictionary -> File
 
 // NSDictionary -> File
 - (File*)fileFromDictionary:(NSDictionary*)dictionary atIndex:(NSInteger)index andPieces:(NSString*)pieces {

@@ -28,6 +28,7 @@
 		096A142A1B0F9BE900979DF5 /* TorrentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096A14291B0F9BE900979DF5 /* TorrentListViewController.xib */; };
 		096A142D1B0F9BF400979DF5 /* TypeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 096A142C1B0F9BF400979DF5 /* TypeHelper.m */; };
 		096A14301B0F9C0400979DF5 /* TorrentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096A142F1B0F9C0400979DF5 /* TorrentListViewController.m */; };
+		096A14321B0F9D2700979DF5 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 096A14311B0F9D2700979DF5 /* README */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		096A142C1B0F9BF400979DF5 /* TypeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeHelper.m; path = "ls-torrent-client/Classes/Bencode/TypeHelper.m"; sourceTree = "<group>"; };
 		096A142E1B0F9C0400979DF5 /* TorrentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentListViewController.h; path = "ls-torrent-client/Classes/Controllers/TorrentListViewController.h"; sourceTree = "<group>"; };
 		096A142F1B0F9C0400979DF5 /* TorrentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentListViewController.m; path = "ls-torrent-client/Classes/Controllers/TorrentListViewController.m"; sourceTree = "<group>"; };
+		096A14311B0F9D2700979DF5 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		095308131B0B9C5E00B6D88E = {
 			isa = PBXGroup;
 			children = (
+				096A14311B0F9D2700979DF5 /* README */,
 				095308501B0B9F7400B6D88E /* Resources */,
 				0953083F1B0B9D3A00B6D88E /* Classes */,
 			);
@@ -355,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096A14321B0F9D2700979DF5 /* README in Resources */,
 				095308271B0B9C5E00B6D88E /* Images.xcassets in Resources */,
 				095308661B0BABD800B6D88E /* TorrentCell.xib in Resources */,
 				0953082A1B0B9C5E00B6D88E /* MainMenu.xib in Resources */,
