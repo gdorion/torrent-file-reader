@@ -53,7 +53,7 @@ NSInteger  kTorrentSHA1Lenght = 20;
     NSString * firstChar = [content substringWithRange:NSMakeRange(0, 1)];
     
     Type * newDecodedValue = nil;
- 
+    
     // Dictionary
     if ([firstChar isEqualToString:@"d"]) {
         TypeDictionary * dictionary = [[TypeDictionary alloc] initWithString:content];
@@ -104,12 +104,6 @@ NSInteger  kTorrentSHA1Lenght = 20;
     // Single file (trying : 'name' or 'path')
     else {
         NSString * pieces = [TypeHelper stringForKey:kTorrentPiecesDictKey inDictionaryTree:dictionary].decodedValue;
-        NSString * path = [TypeHelper stringForKey:kTorrentPathDictKey inDictionaryTree:dictionary].decodedValue;
-        
-        if (path == nil) {
-            path = [TypeHelper stringForKey:kTorrentNameDictKey inDictionaryTree:dictionary].decodedValue;
-        }
-        
         [fileList addObject:[self fileFromDictionary:dictionary atIndex:0 andPieces:pieces]];
     }
     
@@ -121,6 +115,11 @@ NSInteger  kTorrentSHA1Lenght = 20;
 // NSDictionary -> File
 - (File*)fileFromDictionary:(NSDictionary*)dictionary atIndex:(NSInteger)index andPieces:(NSString*)pieces {
     NSString * path = [TypeHelper stringForKey:kTorrentPathDictKey inDictionaryTree:dictionary].decodedValue;
+    
+    if (path == nil) {
+        path = [TypeHelper stringForKey:kTorrentNameDictKey inDictionaryTree:dictionary].decodedValue;
+    }
+    
     NSInteger length = [TypeHelper intForKey:kTorrentLengthDictKey inDictionaryTree:dictionary].decodedValue;
     
     // Extract SHA1 (multiple of 20 bytes)
