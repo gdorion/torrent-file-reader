@@ -29,10 +29,10 @@
     // Prepare models.
     [TorrentModel instance];
     
-    [self loadViews];
+    [self loadView];
 }
 
-- (void)loadViews {
+- (void)loadView {
     self.torrentListViewController = [[TorrentListViewController alloc] initWithNibName:@"TorrentListViewController" bundle:nil];
     [self.window.contentView addSubview:self.torrentListViewController.view];
     self.torrentListViewController.view.frame = ((NSView*)self.window.contentView).bounds;

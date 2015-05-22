@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TorrentListViewController">
             <connections>
+                <outlet property="announceClientLabel" destination="uxQ-Uz-pcn" id="clD-zb-hyO"/>
                 <outlet property="creationClientLabel" destination="FMs-V1-blf" id="QDb-1t-f48"/>
                 <outlet property="creationDateLabel" destination="lYj-PG-iz6" id="QrJ-Ds-Peb"/>
                 <outlet property="tableView" destination="tLs-Lg-Crx" id="eWt-4N-KKc"/>
@@ -19,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="73" horizontalPageScroll="10" verticalLineScroll="73" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Io2-PU-O5t">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="252"/>
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="236"/>
                     <clipView key="contentView" id="9Ib-lg-P8l">
                         <rect key="frame" x="1" y="17" width="238" height="117"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +128,7 @@
                     <rect key="frame" x="7" y="252" width="102" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Creation Date : " id="e2f-Ts-l2d">
                         <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" red="0.35508028314917128" green="0.35508028314917128" blue="0.35508028314917128" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -135,7 +136,7 @@
                     <rect key="frame" x="243" y="252" width="102" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Creation Client : " id="rqj-iv-8iX">
                         <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" red="0.48953297651933703" green="0.48953297651933703" blue="0.48953297651933703" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -155,13 +156,29 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uxQ-Uz-pcn">
+                    <rect key="frame" x="107" y="237" width="369" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Unknown" id="wPq-nh-1KL">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-c6-ybG">
+                    <rect key="frame" x="41" y="237" width="50" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tracker :" id="6JP-b7-0jM">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" red="0.43121978591160226" green="0.43121978591160226" blue="0.43121978591160226" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="Io2-PU-O5t" secondAttribute="centerX" id="0YJ-m4-zYE"/>
                 <constraint firstItem="Io2-PU-O5t" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="JZM-oL-b9S"/>
-                <constraint firstAttribute="centerY" secondItem="Io2-PU-O5t" secondAttribute="centerY" constant="-10" id="W69-Uo-K33"/>
+                <constraint firstAttribute="centerY" secondItem="Io2-PU-O5t" secondAttribute="centerY" constant="-18" id="W69-Uo-K33"/>
                 <constraint firstAttribute="bottom" secondItem="Io2-PU-O5t" secondAttribute="bottom" id="hxP-vo-o9O"/>
-                <constraint firstItem="Io2-PU-O5t" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="l4h-5d-MzZ"/>
+                <constraint firstItem="Io2-PU-O5t" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="36" id="l4h-5d-MzZ"/>
                 <constraint firstAttribute="trailing" secondItem="Io2-PU-O5t" secondAttribute="trailing" id="mGE-cc-E97"/>
             </constraints>
             <point key="canvasLocation" x="390" y="239"/>

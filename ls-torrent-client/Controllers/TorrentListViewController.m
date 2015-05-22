@@ -21,6 +21,7 @@
 @property (nonatomic) IBOutlet NSTableView * tableView;
 @property (nonatomic) IBOutlet NSTextField * creationDateLabel;
 @property (nonatomic) IBOutlet NSTextField * creationClientLabel;
+@property (nonatomic) IBOutlet NSTextField * announceClientLabel;
 
 @end
 
@@ -60,6 +61,9 @@
         [dateFormatter setDateFormat:@"dd-MM-yyyy"];
         NSString *stringDate = [dateFormatter stringFromDate:[[TorrentModel instance] torrent].creationDate];
         [self.creationDateLabel setStringValue:stringDate];
+        
+        // Tracker (announce)
+        [self.announceClientLabel setStringValue:[[TorrentModel instance] torrent].announce];
         
         // Created by
         NSString * client = [[TorrentModel instance] torrent].creationClient;

@@ -29,6 +29,7 @@
 		0953088A1B0D357200B6D88E /* TorrentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095308891B0D357200B6D88E /* TorrentListView.m */; };
 		0953088E1B0D396100B6D88E /* TorrentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0953088C1B0D396100B6D88E /* TorrentListViewController.m */; };
 		0953088F1B0D396100B6D88E /* TorrentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0953088D1B0D396100B6D88E /* TorrentListViewController.xib */; };
+		096A14281B0EB65800979DF5 /* TypeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 096A14271B0EB65800979DF5 /* TypeHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		0953088B1B0D396100B6D88E /* TorrentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentListViewController.h; path = Controllers/TorrentListViewController.h; sourceTree = "<group>"; };
 		0953088C1B0D396100B6D88E /* TorrentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentListViewController.m; path = Controllers/TorrentListViewController.m; sourceTree = "<group>"; };
 		0953088D1B0D396100B6D88E /* TorrentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TorrentListViewController.xib; path = Controllers/TorrentListViewController.xib; sourceTree = "<group>"; };
+		096A14261B0EB65800979DF5 /* TypeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeHelper.h; sourceTree = "<group>"; };
+		096A14271B0EB65800979DF5 /* TypeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 				095308671B0BF41C00B6D88E /* Types */,
 				0953084D1B0B9E0500B6D88E /* TorrentDecoder.h */,
 				0953084E1B0B9E0500B6D88E /* TorrentDecoder.m */,
+				096A14261B0EB65800979DF5 /* TypeHelper.h */,
+				096A14271B0EB65800979DF5 /* TypeHelper.m */,
 			);
 			name = Bencode;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				095308801B0C02BE00B6D88E /* TypeDictionary.m in Sources */,
 				095308481B0B9D7300B6D88E /* Torrent.m in Sources */,
 				095308791B0BF99B00B6D88E /* TypeArray.m in Sources */,
+				096A14281B0EB65800979DF5 /* TypeHelper.m in Sources */,
 				095308731B0BF56A00B6D88E /* TypeString.m in Sources */,
 				0953084B1B0B9D8700B6D88E /* TorrentModel.m in Sources */,
 				095308641B0BAB8B00B6D88E /* TorrentCell.m in Sources */,

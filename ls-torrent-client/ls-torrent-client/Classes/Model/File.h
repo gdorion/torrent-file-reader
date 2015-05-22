@@ -11,8 +11,8 @@
 @interface File : NSObject
 
 @property (nonatomic) NSString * name;
-@property (nonatomic) NSUInteger length;
-@property (nonatomic) NSString * checksum;
+@property (nonatomic) NSUInteger length; // Length is in byte.
+@property (nonatomic) NSString * checksum; // 20 characters depending on the index of the file.
 
 - (instancetype)initWithName:(NSString*)name andLength:(NSInteger)length andChecksum:(NSString*)checksum;
 

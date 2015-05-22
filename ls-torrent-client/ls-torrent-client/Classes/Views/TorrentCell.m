@@ -23,13 +23,14 @@
 @implementation TorrentCell
 
 - (void)updateWithFile:(File *)file {
-    NSString * unknownStringValue = @"unknown";
+    NSString * unknownStringValue = @"Unknown";
     
     NSString * name = file.name ? file.name : unknownStringValue;
     [self.nameTextField setStringValue:name];
     
-    NSString * length = file.length > 0 ? [NSString stringWithFormat:@"%ld", file.length] : unknownStringValue;
-    [self.lengthTextField setStringValue:length];
+    // Conversion from bytes to megabytes.
+    NSString * length = file.length > 0 ? [NSString stringWithFormat:@"%.4f", (double)file.length / 1000000] : unknownStringValue;
+    [self.lengthTextField setStringValue:[NSString stringWithFormat:@"%@ MB", length]];
     
     NSString * checksum = file.checksum  ? file.checksum : unknownStringValue;
     [self.checksumTextField setStringValue:checksum];

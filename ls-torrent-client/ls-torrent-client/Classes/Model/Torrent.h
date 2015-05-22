@@ -13,8 +13,12 @@
 @property (nonatomic) NSArray * fileList;
 @property (nonatomic) NSString * creationClient;
 @property (nonatomic) NSDate * creationDate;
+@property (nonatomic) NSString * announce;
 
-- (id)initWithFileList:(NSArray*)fileList andCreationClient:(NSString*)creationClient andCreationDate:(NSInteger)creationDate;
+- (id)initWithFileList:(NSArray*)fileList
+     andCreationClient:(NSString*)creationClient
+       andCreationDate:(NSInteger)creationDate
+           andAnnounce:(NSString*)announce;
 
 - (NSArray*)fileNameList;
 
