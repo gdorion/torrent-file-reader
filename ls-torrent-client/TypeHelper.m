@@ -22,7 +22,21 @@
     // Nested Array
     if ([resultValue isKindOfClass:[TypeArray class]]) {
         TypeArray * nestedArray = (TypeArray*)resultValue;
-        return [nestedArray.decodedArray firstObject];
+
+        if (nestedArray.decodedArray.count > 1) {
+            // Directory structure
+            TypeString * folderStructure = [TypeString new];
+            folderStructure.decodedValue = [nestedArray.decodedArray componentsJoinedByString:@"/"];
+            
+            for (TypeString * string in nestedArray.decodedArray) {
+                folderStructure.length += string.length;
+            }
+            
+            return folderStructure;
+        }
+        else {
+            return [nestedArray.decodedArray firstObject];
+        }
     }
     
     // Nested Dictionary

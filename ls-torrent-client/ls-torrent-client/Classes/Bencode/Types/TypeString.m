@@ -63,4 +63,8 @@
     return self.decodedValue;
 }
 
+- (NSString *)description {
+    return [self stringValue];
+}
+
 @end
