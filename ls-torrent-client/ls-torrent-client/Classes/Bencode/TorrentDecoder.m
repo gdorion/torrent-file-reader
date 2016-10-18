@@ -22,16 +22,16 @@
 
 // Torrent metadata information keys
 // Ref.: https://wiki.theory.org/BitTorrentSpecification
-NSString * kTorrentPathDictKey = @"path";
-NSString * kTorrentNameDictKey = @"name";
-NSString * kTorrentPiecesDictKey = @"pieces";
-NSString * kTorrentLengthDictKey = @"length";
-NSString * kTorrentCreationClientDictKey = @"created by";
-NSString * kTorrentCreationDateDictKey = @"creation date";
-NSString * kTorrentFilesDictKey = @"files";
-NSString * kTorrentAnnounceDictKey = @"announce";
-NSString * kTorrentFileMD5ChecksumDictKey = @"md5sum";
-NSInteger  kTorrentSHA1Lenght = 20;
+static NSString * kTorrentPathDictKey = @"path";
+static NSString * kTorrentNameDictKey = @"name";
+static NSString * kTorrentPiecesDictKey = @"pieces";
+static NSString * kTorrentLengthDictKey = @"length";
+static NSString * kTorrentCreationClientDictKey = @"created by";
+static NSString * kTorrentCreationDateDictKey = @"creation date";
+static NSString * kTorrentFilesDictKey = @"files";
+static NSString * kTorrentAnnounceDictKey = @"announce";
+static NSString * kTorrentFileMD5ChecksumDictKey = @"md5sum";
+static NSInteger  kTorrentSHA1Lenght = 20;
 
 @implementation TorrentDecoder
 

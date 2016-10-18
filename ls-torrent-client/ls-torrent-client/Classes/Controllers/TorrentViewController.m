@@ -18,11 +18,11 @@
 
 @interface TorrentViewController () <NSTableViewDelegate, NSTableViewDataSource>
 
-@property (nonatomic) IBOutlet NSTableView * tableView;
-@property (nonatomic) IBOutlet NSTextField * creationDateLabel;
-@property (nonatomic) IBOutlet NSTextField * creationClientLabel;
-@property (nonatomic) IBOutlet NSTextField * announceClientLabel;
-@property (nonatomic) IBOutlet NSTextField * fileNameClientLabel;
+@property (nonatomic, weak) IBOutlet NSTableView * tableView;
+@property (nonatomic, weak) IBOutlet NSTextField * creationDateLabel;
+@property (nonatomic, weak) IBOutlet NSTextField * creationClientLabel;
+@property (nonatomic, weak) IBOutlet NSTextField * announceClientLabel;
+@property (nonatomic, weak) IBOutlet NSTextField * fileNameClientLabel;
 
 @end
 
@@ -90,7 +90,7 @@
     openDialog.allowedFileTypes = @[@"torrent"];
 
     if ([openDialog runModal] == NSModalResponseOK) {
-        return [openDialog.URLs firstObject];
+        return (NSString*)[openDialog.URLs firstObject];
     }
     
     return nil;

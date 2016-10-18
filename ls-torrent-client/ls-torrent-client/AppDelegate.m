@@ -17,8 +17,9 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
-
 @property (nonatomic) IBOutlet NSButton * addTorrentButton;
+
+@property (nonatomic) TorrentViewController *torrentViewController;
 
 @end
 
@@ -26,7 +27,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [TorrentModel instance];
-    
     [self loadView];
 }
 
